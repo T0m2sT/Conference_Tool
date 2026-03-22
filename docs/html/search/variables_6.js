@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['orig_0',['orig',['../classEdge.html#a4510c31e0479f9d25f6e35d086887192',1,'Edge']]]
+  ['low_0',['low',['../classVertex.html#a35d937c418952520cfa26b098e86b755',1,'Vertex']]]
 ];

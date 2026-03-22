@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_3c_0',['operator&lt;',['../classVertex.html#a5a6670b842354232bac4dad2f551d66e',1,'Vertex']]],
-  ['orig_1',['orig',['../classEdge.html#a4510c31e0479f9d25f6e35d086887192',1,'Edge']]]
+  ['name_0',['name',['../structReviewer.html#af9ab4025cd39328e9ce594ef165e9e9c',1,'Reviewer']]],
+  ['num_1',['num',['../classVertex.html#aeb941bcd51ef71c6101e02eaed1cae12',1,'Vertex']]]
 ];

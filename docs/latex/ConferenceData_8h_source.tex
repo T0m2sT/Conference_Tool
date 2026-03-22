@@ -1,0 +1,56 @@
+\doxysection{Conference\+Data.\+h}
+\hypertarget{ConferenceData_8h_source}{}\label{ConferenceData_8h_source}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/models/ConferenceData.h@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/models/ConferenceData.h}}
+\doxymbox{\hyperlink{ConferenceData_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFERENCEDATA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFERENCEDATA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structSubmission_adc357e6d7b44178d1f52017615751138}{Submission}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structSubmission_a7b6e2405d79134e923f1d74beba845a0}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structSubmission_ae143f4081965aaa80af89fc3a1b5baa6}{title}};\ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structSubmission_a853f337b093f91f4192c70df3e02d631}{authors}};\ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structSubmission_ab524f4484bf346c7ba0d94b0a7dd114c}{email}};\ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structSubmission_aa983dd3d98f1ac3ee5a713d01ca875ed}{primaryDomain}};\ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structSubmission_a9bafaead1609a44c738d2e6d9e511e9e}{secondaryDomain}};\ \ \ \ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \ \ \ \ \doxymbox{\hyperlink{structSubmission_adc357e6d7b44178d1f52017615751138}{Submission}}()\ :\ \doxymbox{\hyperlink{structSubmission_a7b6e2405d79134e923f1d74beba845a0}{id}}(-\/1),\ \doxymbox{\hyperlink{structSubmission_aa983dd3d98f1ac3ee5a713d01ca875ed}{primaryDomain}}(-\/1),\ \doxymbox{\hyperlink{structSubmission_a9bafaead1609a44c738d2e6d9e511e9e}{secondaryDomain}}(-\/1)\ \{\}}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structReviewer_ac9966f427a3bb05458db91e205df7291}{Reviewer}}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structReviewer_aeacccab23a0ec1c59ab0283f95f01fda}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structReviewer_af9ab4025cd39328e9ce594ef165e9e9c}{name}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structReviewer_a5ae05709e98e328427aed3ead8912fd8}{email}};\ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structReviewer_a1a6ba130656856000843bbc57e811486}{primaryExpertise}};\ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structReviewer_a19fc5d836237badc57737b4b8bbdcd10}{secondaryExpertise}};\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{structReviewer_ac9966f427a3bb05458db91e205df7291}{Reviewer}}()\ :\ \doxymbox{\hyperlink{structReviewer_aeacccab23a0ec1c59ab0283f95f01fda}{id}}(-\/1),\ \doxymbox{\hyperlink{structReviewer_a1a6ba130656856000843bbc57e811486}{primaryExpertise}}(-\/1),\ \doxymbox{\hyperlink{structReviewer_a19fc5d836237badc57737b4b8bbdcd10}{secondaryExpertise}}(-\/1)\ \{\}}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structParameters_af4d94ee360ac0157d9065f78797fe9a1}{Parameters}}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structParameters_a7a88a93ea0e7bb9aa1f2b44acff3776c}{minReviewsPerSubmission}};\ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structParameters_ae78183abd0f7689d650ab60b0194dd43}{maxReviewsPerReviewer}};\ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structParameters_a93181dc57462e044aaac72d544c2c0ed}{primaryReviewerExpertise}};\ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structParameters_a66edfe04b880cf7060f40eae3a1aa695}{secondaryReviewerExpertise}};\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structParameters_a22fdf73cc9aa31f94e2edb0738b91ce4}{primarySubmissionDomain}};\ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structParameters_ab0a361652545514ac10813459c929f1f}{secondarySubmissionDomain}};\ \ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00072\ \ \ \ \ \doxymbox{\hyperlink{structParameters_af4d94ee360ac0157d9065f78797fe9a1}{Parameters}}()\ :\ \doxymbox{\hyperlink{structParameters_a7a88a93ea0e7bb9aa1f2b44acff3776c}{minReviewsPerSubmission}}(0),\ \doxymbox{\hyperlink{structParameters_ae78183abd0f7689d650ab60b0194dd43}{maxReviewsPerReviewer}}(0),}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structParameters_a93181dc57462e044aaac72d544c2c0ed}{primaryReviewerExpertise}}(1),\ \doxymbox{\hyperlink{structParameters_a66edfe04b880cf7060f40eae3a1aa695}{secondaryReviewerExpertise}}(0),}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structParameters_a22fdf73cc9aa31f94e2edb0738b91ce4}{primarySubmissionDomain}}(1),\ \doxymbox{\hyperlink{structParameters_ab0a361652545514ac10813459c929f1f}{secondarySubmissionDomain}}(0)\ \{\}}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structControl_aa730aeda4517f40bc48ba1e46ebded77}{Control}}\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structControl_ab5d6662e13b5a2e77faf461d66ab5cdc}{generateAssignments}};\ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structControl_a51dcb4a3f5c2793db8229a3cb0e15ce9}{riskAnalysis}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00083\ \ \ \ \ std::string\ \doxymbox{\hyperlink{structControl_a231429ce3538fa9ff91d78a5f07a5008}{outputFileName}};\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ \doxymbox{\hyperlink{structControl_aa730aeda4517f40bc48ba1e46ebded77}{Control}}()\ :\ \doxymbox{\hyperlink{structControl_ab5d6662e13b5a2e77faf461d66ab5cdc}{generateAssignments}}(0),\ \doxymbox{\hyperlink{structControl_a51dcb4a3f5c2793db8229a3cb0e15ce9}{riskAnalysis}}(0),\ \doxymbox{\hyperlink{structControl_a231429ce3538fa9ff91d78a5f07a5008}{outputFileName}}(\textcolor{stringliteral}{"{}output.csv"{}})\ \{\}}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
