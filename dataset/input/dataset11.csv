@@ -1,4 +1,3 @@
-# Scenario: Secondary submission domain only - all satisfied with margin
 #Submissions
 #Id, Title, Authors, E-mail, Primary, Secondary
 1, "AI Planning Systems", Alice Brown, alice.brown@gmail.com, 1, 2
@@ -22,5 +21,5 @@ PrimarySubmissionDomain, 1
 SecondarySubmissionDomain, 1
 #Control
 GenerateAssignments, 2
-RiskAnalysis, 0
-OutputFileName, "output_dataset10.csv"
+RiskAnalysis, 1
+OutputFileName, "output_dataset11.csv"
