@@ -4,8 +4,8 @@
 #include <sstream>
 
 std::string CSVParser::trim(const std::string &s) {
-    std::size_t start = s.find_first_not_of(" \t\r\n");
-    std::size_t end = s.find_last_not_of(" \t\r\n");
+    std::size_t start = s.find_first_not_of(" \t\r\n\"");
+    std::size_t end = s.find_last_not_of(" \t\r\n\"");
     return (start == std::string::npos) ? "" : s.substr(start, end - start + 1);
 }
 
@@ -103,14 +103,25 @@ bool CSVParser::parseFile(const std::string &filename, std::vector<Submission> &
     std::string line;
 
     while (std::getline(file, line)) {
-        line = trim(line);
-        if (line.empty() || line[0] == '#') {
-            CSVParser::Section newSection = detectSection(line);
+        // Strip inline comments (everything after #)
+        std::size_t hashPos = line.find('#');
+        std::string beforeHash = (hashPos != std::string::npos) ? line.substr(0, hashPos) : line;
+        std::string trimmedLine = trim(line);
+
+        if (trimmedLine.empty()) continue;
+
+        // Lines starting with # are section headers or comments
+        if (trimmedLine[0] == '#') {
+            CSVParser::Section newSection = detectSection(trimmedLine);
             section = (newSection == NONE) ? section : newSection;
             continue;
         }
 
-        std::vector<std::string> tokens = splitCSVLine(line);
+        // Data line — use the part before any inline # comment
+        std::string dataLine = trim(beforeHash);
+        if (dataLine.empty()) continue;
+
+        std::vector<std::string> tokens = splitCSVLine(dataLine);
         parseLine(tokens, section, submissions, reviewers, params, control);
     }
 

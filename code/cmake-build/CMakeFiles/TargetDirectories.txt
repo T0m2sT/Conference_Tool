@@ -1,0 +1,3 @@
+/Users/tomas_teixeira/Documents/LEIC/2A2S/DA/DA-Conference-Tool/code/cmake-build/CMakeFiles/da_tool.dir
+/Users/tomas_teixeira/Documents/LEIC/2A2S/DA/DA-Conference-Tool/code/cmake-build/CMakeFiles/edit_cache.dir
+/Users/tomas_teixeira/Documents/LEIC/2A2S/DA/DA-Conference-Tool/code/cmake-build/CMakeFiles/rebuild_cache.dir
