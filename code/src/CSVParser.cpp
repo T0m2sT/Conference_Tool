@@ -103,21 +103,19 @@ bool CSVParser::parseFile(const std::string &filename, std::vector<Submission> &
     std::string line;
 
     while (std::getline(file, line)) {
-        // Strip inline comments (everything after #)
-        std::size_t hashPos = line.find('#');
-        std::string beforeHash = (hashPos != std::string::npos) ? line.substr(0, hashPos) : line;
         std::string trimmedLine = trim(line);
-
+        
         if (trimmedLine.empty()) continue;
-
-        // Lines starting with # are section headers or comments
+        
         if (trimmedLine[0] == '#') {
             CSVParser::Section newSection = detectSection(trimmedLine);
             section = (newSection == NONE) ? section : newSection;
             continue;
         }
+        
+        std::size_t hashPos = line.find('#');
+        std::string beforeHash = (hashPos != std::string::npos) ? line.substr(0, hashPos) : line;
 
-        // Data line — use the part before any inline # comment
         std::string dataLine = trim(beforeHash);
         if (dataLine.empty()) continue;
 
