@@ -147,7 +147,9 @@ int arrowMenu(const std::vector<std::string> &options) {
             char arrow = getchar();
             int oldSelected = selected;
             if (arrow == 'A' && selected > 0) selected--;
+            else if (arrow == 'A') selected = (int)options.size()-1;
             if (arrow == 'B' && selected < (int)options.size() - 1) selected++;
+            else if (arrow == 'B') selected = 0;
 
             if (oldSelected != selected) {
                 std::cout << CURSOR_SAVE;
