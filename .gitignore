@@ -1,3 +1,9 @@
+#Folders to Ignore
 code/cmake-build/
+assignments/
 
+#Files to Ignore
 .DS_Store
+
+#Files to Keep
+!assignments/.gitkeep
