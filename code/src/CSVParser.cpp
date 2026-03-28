@@ -78,7 +78,7 @@ void CSVParser::parseLine(const std::vector<std::string> &tokens, Section sectio
                 std::string value = tokens[1];
                 if (key == "GenerateAssignments") control.generateAssignments = std::stoi(value);
                 else if (key == "RiskAnalysis") control.riskAnalysis = std::stoi(value);
-                else if (key == "OutputFileName") control.outputFileName = value;
+                else if (key == "OutputFileName") control.outputFileName = "assignments/" + value;
             }
             break;
 

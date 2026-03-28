@@ -1,114 +1,268 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <termios.h>
+#include <unistd.h>
+#include <sys/select.h>
+#include <limits>
+#include <sys/stat.h>
 #include "parser/CSVParser.h"
 #include "models/ConferenceData.h"
 #include "FlowNetwork.h"
 #include "OutputWriter.h"
 
-void showMenu() {
-    std::cout << "\n=== Conference Review Assignment Tool ===\n";
-    std::cout << "1. Load input file\n";
-    std::cout << "2. Show submissions\n";
-    std::cout << "3. Show reviewers\n";
-    std::cout << "4. Show parameters & control settings\n";
-    std::cout << "5. Run assignment\n";
-    std::cout << "6. Exit\n";
-    std::cout << "Choose an option: ";
+// ANSI escape code constants
+const std::string CLEAR_SCREEN    = "\033[2J\033[H";
+const std::string HIGHLIGHT_ON    = "\033[7m";
+const std::string HIGHLIGHT_OFF   = "\033[0m";
+const std::string CURSOR_HIDE     = "\033[?25l";
+const std::string CURSOR_SHOW     = "\033[?25h";
+const std::string CURSOR_SAVE     = "\033[s";
+const std::string CURSOR_RESTORE  = "\033[u";
+
+// Move cursor to a specific row
+std::string cursorToRow(int row) {
+    return "\033[" + std::to_string(row) + ";1H";
 }
 
-void showSubmissions(const std::vector<Submission> &submissions) {
-    if (submissions.empty()) { std::cout << "No submissions loaded.\n"; return; }
-    std::cout << "\n--- Submissions ---\n";
+const int BOX_INNER = 66;
+const std::string BOX_TOP    = "╔════════════════════════════════════════════════════════════════════╗";
+const std::string BOX_MID    = "╠════════════════════════════════════════════════════════════════════╣";
+const std::string BOX_BOTTOM = "╚════════════════════════════════════════════════════════════════════╝";
+
+// Helper: build a line padded to fit inside the box
+std::string boxLine(const std::string &text) {
+    std::string padded = text;
+    if ((int)padded.size() > BOX_INNER) padded = padded.substr(0, BOX_INNER);
+    while ((int)padded.size() < BOX_INNER) padded += " ";
+    return "║ " + padded + " ║";
+}
+
+std::string boxLineArrow(const std::string &text) {
+    std::string padded = text;
+    while ((int)padded.size() < BOX_INNER+4) padded += " ";
+    return "║ " + padded + " ║";
+}
+
+// Helper: build a menu line with optional highlight
+std::string menuLine(const std::string &text, bool highlighted) {
+    std::string padded = text;
+    while ((int)padded.size() < BOX_INNER - 3) padded += " ";
+    if (highlighted)
+        return "║  " + HIGHLIGHT_ON + " " + padded + HIGHLIGHT_OFF + "  ║";
+    return "║   " + padded + "  ║";
+}
+
+// Display content lines inside the standard box, wait for Enter
+void displayInBox(const std::string &subtitle, const std::vector<std::string> &lines) {
+    std::cout << CLEAR_SCREEN;
+    std::cout << "\n";
+    std::cout << BOX_TOP << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("                Conference Review Assignment Tool") << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << BOX_MID << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("  " + subtitle) << "\n";
+    std::cout << boxLine("") << "\n";
+    for (const auto &line : lines) {
+        std::cout << boxLine("  " + line) << "\n";
+    }
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("  Press Enter to go back...") << "\n";
+    std::cout << BOX_BOTTOM << std::endl;
+
+    // Switch to raw mode, drain everything, then wait for one Enter
+    struct termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+    // Drain any buffered chars (from cin or fd)
+    tcflush(STDIN_FILENO, TCIFLUSH);
+
+    // Wait for a single Enter
+    while (getchar() != '\n') {}
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+}
+
+// Draw the box with a prompt line, read input, return it
+std::string promptInBox(const std::string &subtitle, const std::string &prompt) {
+    std::cout << CLEAR_SCREEN;
+    std::cout << "\n";
+    std::cout << BOX_TOP << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("                Conference Review Assignment Tool") << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << BOX_MID << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("  " + subtitle) << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("  " + prompt) << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << BOX_BOTTOM << "\n";
+    std::cout << std::flush;
+    // Move cursor back up to the prompt line, after the prompt text
+    int promptCol = 4 + (int)prompt.size() + 1;
+    std::cout << "\033[3A\033[" << promptCol << "G";
+    std::string input;
+    std::cin >> input;
+    // Flush the leftover \n from cin so it doesn't leak into the next screen
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return input;
+}
+
+int arrowMenu(const std::vector<std::string> &options) {
+    int selected = 0;
+    struct termios oldt, newt;
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+    // Draw the full menu once
+    std::cout << CLEAR_SCREEN;
+    std::cout << "\n";
+    std::cout << BOX_TOP << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLine("                Conference Review Assignment Tool") << "\n";
+    std::cout << boxLine("") << "\n";
+    std::cout << BOX_MID << "\n";
+    std::cout << boxLine("") << "\n";
+    int firstOptionRow = 8;
+    for (int i = 0; i < (int)options.size(); i++) {
+        std::cout << menuLine(options[i], i == selected) << "\n";
+    }
+    std::cout << boxLine("") << "\n";
+    std::cout << boxLineArrow("  \u2191/\u2193 arrows, Enter to select") << "\n";
+    std::cout << BOX_BOTTOM << "\n";
+    std::cout << CURSOR_HIDE << std::flush;
+
+    while (true) {
+        char c = getchar();
+        if (c == '\n') break;
+        if (c == '\033') {
+            getchar();
+            char arrow = getchar();
+            int oldSelected = selected;
+            if (arrow == 'A' && selected > 0) selected--;
+            if (arrow == 'B' && selected < (int)options.size() - 1) selected++;
+
+            if (oldSelected != selected) {
+                std::cout << CURSOR_SAVE;
+                std::cout << cursorToRow(firstOptionRow + oldSelected);
+                std::cout << menuLine(options[oldSelected], false);
+                std::cout << cursorToRow(firstOptionRow + selected);
+                std::cout << menuLine(options[selected], true);
+                std::cout << CURSOR_RESTORE << std::flush;
+            }
+        }
+    }
+
+    std::cout << CURSOR_SHOW;
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+    return selected;
+}
+
+std::vector<std::string> getSubmissionLines(const std::vector<Submission> &submissions) {
+    std::vector<std::string> lines;
+    if (submissions.empty()) { lines.push_back("No submissions loaded."); return lines; }
     for (const auto &s : submissions) {
-        std::cout << "ID: " << s.id
-                  << " | Title: " << s.title
-                  << " | Authors: " << s.authors
-                  << " | Primary: " << s.primaryDomain;
-        if (s.secondaryDomain != -1) std::cout << " | Secondary: " << s.secondaryDomain;
-        std::cout << "\n";
+        std::string line = "ID:" + std::to_string(s.id)
+            + " | " + s.title
+            + " | D:" + std::to_string(s.primaryDomain);
+        if (s.secondaryDomain != -1) line += "/" + std::to_string(s.secondaryDomain);
+        lines.push_back(line);
     }
+    return lines;
 }
 
-void showReviewers(const std::vector<Reviewer> &reviewers) {
-    if (reviewers.empty()) { std::cout << "No reviewers loaded.\n"; return; }
-    std::cout << "\n--- Reviewers ---\n";
+std::vector<std::string> getReviewerLines(const std::vector<Reviewer> &reviewers) {
+    std::vector<std::string> lines;
+    if (reviewers.empty()) { lines.push_back("No reviewers loaded."); return lines; }
     for (const auto &r : reviewers) {
-        std::cout << "ID: " << r.id
-                  << " | Name: " << r.name
-                  << " | Primary Expertise: " << r.primaryExpertise;
-        if (r.secondaryExpertise != -1) std::cout << " | Secondary: " << r.secondaryExpertise;
-        std::cout << "\n";
+        std::string line = "ID:" + std::to_string(r.id)
+            + " | " + r.name
+            + " | E:" + std::to_string(r.primaryExpertise);
+        if (r.secondaryExpertise != -1) line += "/" + std::to_string(r.secondaryExpertise);
+        lines.push_back(line);
     }
+    return lines;
 }
 
-void showSettings(const Parameters &params, const Control &control) {
-    std::cout << "\n--- Parameters ---\n"
-              << "MinReviewsPerSubmission: " << params.minReviewsPerSubmission << "\n"
-              << "MaxReviewsPerReviewer: " << params.maxReviewsPerReviewer << "\n"
-              << "PrimaryReviewerExpertise: " << params.primaryReviewerExpertise << "\n"
-              << "SecondaryReviewerExpertise: " << params.secondaryReviewerExpertise << "\n"
-              << "PrimarySubmissionDomain: " << params.primarySubmissionDomain << "\n"
-              << "SecondarySubmissionDomain: " << params.secondarySubmissionDomain << "\n";
-    std::cout << "\n--- Control ---\n"
-              << "GenerateAssignments: " << control.generateAssignments << "\n"
-              << "RiskAnalysis: " << control.riskAnalysis << "\n"
-              << "OutputFileName: " << control.outputFileName << "\n";
+std::vector<std::string> getSettingsLines(const Parameters &params, const Control &control) {
+    std::vector<std::string> lines;
+    lines.push_back("--- Parameters ---");
+    lines.push_back("MinReviews/Sub: " + std::to_string(params.minReviewsPerSubmission));
+    lines.push_back("MaxReviews/Rev: " + std::to_string(params.maxReviewsPerReviewer));
+    lines.push_back("PrimaryRevExpertise: " + std::to_string(params.primaryReviewerExpertise));
+    lines.push_back("SecondRevExpertise: " + std::to_string(params.secondaryReviewerExpertise));
+    lines.push_back("PrimarySubDomain: " + std::to_string(params.primarySubmissionDomain));
+    lines.push_back("SecondSubDomain: " + std::to_string(params.secondarySubmissionDomain));
+    lines.push_back("");
+    lines.push_back("--- Control ---");
+    lines.push_back("GenerateAssignments: " + std::to_string(control.generateAssignments));
+    lines.push_back("RiskAnalysis: " + std::to_string(control.riskAnalysis));
+    lines.push_back("Output: " + control.outputFileName);
+    return lines;
 }
 
-void runAssignment(const std::vector<Submission> &submissions,
-                   const std::vector<Reviewer> &reviewers,
-                   const Parameters &params,
-                   const Control &control) {
+std::vector<std::string> runAssignment(const std::vector<Submission> &submissions,
+                                       const std::vector<Reviewer> &reviewers,
+                                       const Parameters &params,
+                                       const Control &control) {
+    std::vector<std::string> lines;
     if (submissions.empty() || reviewers.empty()) {
-        std::cout << "Please load an input file first.\n";
-        return;
+        lines.push_back("Please load an input file first.");
+        return lines;
     }
 
     FlowNetwork flowNet;
     int mode = control.generateAssignments;
-    if (mode == 0) mode = 1; // mode 0 still runs assignment, just doesn't report
+    if (mode == 0) mode = 1;
 
     AssignmentResult result = flowNet.buildAndSolve(submissions, reviewers, params, mode);
 
-    // Risk analysis
     std::vector<int> atRisk;
     if (control.riskAnalysis == 1) {
         atRisk = flowNet.riskAnalysisK1(submissions, reviewers, params, mode);
     }
 
-    // Print summary to console
-    std::cout << "\n--- Assignment Result ---\n";
-    std::cout << "Total assignments: " << result.totalAssignments << "\n";
+    lines.push_back("Total: " + std::to_string(result.totalAssignments));
+    lines.push_back("");
     if (result.fullySatisfied) {
-        std::cout << "All submissions fully assigned.\n";
+        lines.push_back("All submissions fully assigned.");
     } else {
-        std::cout << "Some submissions could not be fully assigned:\n";
+        lines.push_back("Missing reviews:");
         for (const auto &m : result.missingReviews) {
-            std::cout << "  Submission " << m.submissionId
-                      << " (domain " << m.domain << "): missing "
-                      << m.missingCount << " reviews\n";
+            lines.push_back("  Sub " + std::to_string(m.submissionId)
+                + " (D:" + std::to_string(m.domain)
+                + ") missing " + std::to_string(m.missingCount));
         }
     }
 
     if (control.riskAnalysis == 1) {
-        std::cout << "Risk Analysis (K=1): ";
+        lines.push_back("");
         if (atRisk.empty()) {
-            std::cout << "No at-risk reviewers.\n";
+            lines.push_back("Risk (K=1): No at-risk reviewers.");
         } else {
+            std::string riskLine = "Risk (K=1): ";
             for (size_t i = 0; i < atRisk.size(); i++) {
-                if (i > 0) std::cout << ", ";
-                std::cout << atRisk[i];
+                if (i > 0) riskLine += ", ";
+                riskLine += std::to_string(atRisk[i]);
             }
-            std::cout << "\n";
+            lines.push_back(riskLine);
         }
     }
 
-    // Write output file
     if (control.generateAssignments != 0) {
         OutputWriter::write(control.outputFileName, result, control.riskAnalysis, atRisk);
-        std::cout << "Output written to: " << control.outputFileName << "\n";
+        lines.push_back("");
+        lines.push_back("Output: " + control.outputFileName);
     }
+
+    return lines;
 }
 
 int runBatchMode(const std::string &inputFile, const std::string &outputFile) {
@@ -154,41 +308,55 @@ int main(int argc, char *argv[]) {
     Control control;
     CSVParser parser;
     bool loaded = false;
+    std::vector<std::string> menuOptions = {
+        "Load input file",
+        "Show submissions",
+        "Show reviewers",
+        "Show parameters & control settings",
+        "Run assignment",
+        "Exit"
+    };
 
-    int choice;
     while (true) {
-        showMenu();
-        if (!(std::cin >> choice)) break;
+        int choice = arrowMenu(menuOptions);
 
         switch (choice) {
-            case 1: {
+            case 0: {
                 std::string defaultpath = "dataset/input/";
                 std::string defaultextension = ".csv";
-                std::string filename;
-                std::cout << "Enter input file name: ";
-                std::cin >> filename;
+                std::string filename = promptInBox("Load Input File", "File name: ");
                 submissions.clear();
                 reviewers.clear();
                 params = Parameters();
                 control = Control();
                 filename = defaultpath + filename + defaultextension;
+                std::vector<std::string> lines;
                 if (parser.parseFile(filename, submissions, reviewers, params, control)) {
                     loaded = true;
-                    std::cout << "Loaded " << submissions.size() << " submissions and "
-                              << reviewers.size() << " reviewers.\n";
+                    lines.push_back("Loaded " + std::to_string(submissions.size()) + " submissions");
+                    lines.push_back("Loaded " + std::to_string(reviewers.size()) + " reviewers");
                 } else {
-                    std::cerr << "Error: Failed to parse file.\n";
-                    // Allows the user to view how file's path is interpreted in case of error, for correction in next menu interaction without leaving the session.
-                    std::cout << "\nConfirm path wanted: \"" << filename << "\"\n"; 
+                    lines.push_back("Error: Failed to parse file.");
+                    lines.push_back("Path: \"" + filename + "\"");
                 }
+                displayInBox("Load Input File", lines);
                 break;
             }
-            case 2: showSubmissions(submissions); break;
-            case 3: showReviewers(reviewers); break;
-            case 4: showSettings(params, control); break;
-            case 5: runAssignment(submissions, reviewers, params, control); break;
-            case 6: return 0;
-            default: std::cout << "Invalid option.\n";
+            case 1:
+                displayInBox("Submissions", getSubmissionLines(submissions));
+                break;
+            case 2:
+                displayInBox("Reviewers", getReviewerLines(reviewers));
+                break;
+            case 3:
+                displayInBox("Parameters & Control", getSettingsLines(params, control));
+                break;
+            case 4:
+                displayInBox("Assignment Result", runAssignment(submissions, reviewers, params, control));
+                break;
+            case 5:
+                std::cout << CLEAR_SCREEN;
+                return 0;
         }
     }
 
