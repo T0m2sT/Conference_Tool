@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['operator_3c_0',['operator&lt;',['../classVertex.html#a5a6670b842354232bac4dad2f551d66e',1,'Vertex']]]
+  ['isprocessing_0',['isProcessing',['../classVertex.html#aaa41dfa4ce1a19b4e529cc6cdc23b764',1,'Vertex']]],
+  ['isselected_1',['isSelected',['../classEdge.html#a2d36af60fa3dea16824bec12e5f68c58',1,'Edge']]],
+  ['isvisited_2',['isVisited',['../classVertex.html#aa2bb17f6ebd98a67f8da1f689b22fadc',1,'Vertex']]]
 ];

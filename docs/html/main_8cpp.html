@@ -91,6 +91,464 @@ $(function(){initNavTree('main_8cpp.html','',''); });
   <div class="headertitle"><div class="title">main.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;termios.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;sys/select.h&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="CSVParser_8h_source.html">parser/CSVParser.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ConferenceData_8h_source.html">models/ConferenceData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="FlowNetwork_8h_source.html">FlowNetwork.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="OutputWriter_8h_source.html">OutputWriter.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad250b149e654b4c2aecd77f1373af74e" id="r_ad250b149e654b4c2aecd77f1373af74e"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ad250b149e654b4c2aecd77f1373af74e">cursorToRow</a> (int row)</td></tr>
+<tr class="memitem:a56e8e2a32e1741df55bb330e9699483a" id="r_a56e8e2a32e1741df55bb330e9699483a"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a56e8e2a32e1741df55bb330e9699483a">boxLine</a> (const std::string &amp;text)</td></tr>
+<tr class="memitem:a58dd672776b693f35a8a53bbcb62a9aa" id="r_a58dd672776b693f35a8a53bbcb62a9aa"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a58dd672776b693f35a8a53bbcb62a9aa">boxLineArrow</a> (const std::string &amp;text)</td></tr>
+<tr class="memitem:a5249b254580feb1d22364ba343bb5387" id="r_a5249b254580feb1d22364ba343bb5387"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a5249b254580feb1d22364ba343bb5387">menuLine</a> (const std::string &amp;text, bool highlighted)</td></tr>
+<tr class="memitem:a82e3a320eed037ac8878d4bde7b5717b" id="r_a82e3a320eed037ac8878d4bde7b5717b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a82e3a320eed037ac8878d4bde7b5717b">displayInBox</a> (const std::string &amp;subtitle, const std::vector&lt; std::string &gt; &amp;lines)</td></tr>
+<tr class="memitem:ae5ccf5fad15dbd07509f8d34212c0cb5" id="r_ae5ccf5fad15dbd07509f8d34212c0cb5"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ae5ccf5fad15dbd07509f8d34212c0cb5">promptInBox</a> (const std::string &amp;subtitle, const std::string &amp;prompt)</td></tr>
+<tr class="memitem:a00fe5d2d78ec39cc68cc1129c84431f5" id="r_a00fe5d2d78ec39cc68cc1129c84431f5"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a00fe5d2d78ec39cc68cc1129c84431f5">arrowMenu</a> (const std::vector&lt; std::string &gt; &amp;options)</td></tr>
+<tr class="memitem:a8886c23d900eec2f4a7852d3f2322547" id="r_a8886c23d900eec2f4a7852d3f2322547"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8886c23d900eec2f4a7852d3f2322547">getSubmissionLines</a> (const std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;submissions)</td></tr>
+<tr class="memitem:aa2af0f0b4f9cde42887bef2d5684c964" id="r_aa2af0f0b4f9cde42887bef2d5684c964"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa2af0f0b4f9cde42887bef2d5684c964">getReviewerLines</a> (const std::vector&lt; <a class="el" href="structReviewer.html">Reviewer</a> &gt; &amp;reviewers)</td></tr>
+<tr class="memitem:aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f" id="r_aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f">getSettingsLines</a> (const <a class="el" href="structParameters.html">Parameters</a> &amp;params, const <a class="el" href="structControl.html">Control</a> &amp;control)</td></tr>
+<tr class="memitem:a45773102d5e0238d22ca03ece6f5d80c" id="r_a45773102d5e0238d22ca03ece6f5d80c"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a45773102d5e0238d22ca03ece6f5d80c">runAssignment</a> (const std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;submissions, const std::vector&lt; <a class="el" href="structReviewer.html">Reviewer</a> &gt; &amp;reviewers, const <a class="el" href="structParameters.html">Parameters</a> &amp;params, const <a class="el" href="structControl.html">Control</a> &amp;control)</td></tr>
+<tr class="memitem:af69b9c19ba7801236d32d342034b77d6" id="r_af69b9c19ba7801236d32d342034b77d6"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#af69b9c19ba7801236d32d342034b77d6">runBatchMode</a> (const std::string &amp;inputFile, const std::string &amp;outputFile)</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0a65e357033035a379a603af34d97168" id="r_a0a65e357033035a379a603af34d97168"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#a0a65e357033035a379a603af34d97168">CLEAR_SCREEN</a> = &quot;\033[2J\033[H&quot;</td></tr>
+<tr class="memitem:a3d43dd5f9b880ab0df99ae693945d73f" id="r_a3d43dd5f9b880ab0df99ae693945d73f"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#a3d43dd5f9b880ab0df99ae693945d73f">HIGHLIGHT_ON</a> = &quot;\033[7m&quot;</td></tr>
+<tr class="memitem:a5db0c7f5fe13f32709c84a8bd310b6eb" id="r_a5db0c7f5fe13f32709c84a8bd310b6eb"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#a5db0c7f5fe13f32709c84a8bd310b6eb">HIGHLIGHT_OFF</a> = &quot;\033[0m&quot;</td></tr>
+<tr class="memitem:a60b2c0b9da30b0df7cb5f5abe10b0db0" id="r_a60b2c0b9da30b0df7cb5f5abe10b0db0"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#a60b2c0b9da30b0df7cb5f5abe10b0db0">CURSOR_HIDE</a> = &quot;\033[?25l&quot;</td></tr>
+<tr class="memitem:adf4a6dee4ed49c0f22dc351a12ba4ef6" id="r_adf4a6dee4ed49c0f22dc351a12ba4ef6"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#adf4a6dee4ed49c0f22dc351a12ba4ef6">CURSOR_SHOW</a> = &quot;\033[?25h&quot;</td></tr>
+<tr class="memitem:aa5ff3c97de2aec728b276c2748b6cf9c" id="r_aa5ff3c97de2aec728b276c2748b6cf9c"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#aa5ff3c97de2aec728b276c2748b6cf9c">CURSOR_SAVE</a> = &quot;\033[s&quot;</td></tr>
+<tr class="memitem:a2fbf61b9ffb4dc03fad3d4df41271286" id="r_a2fbf61b9ffb4dc03fad3d4df41271286"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#a2fbf61b9ffb4dc03fad3d4df41271286">CURSOR_RESTORE</a> = &quot;\033[u&quot;</td></tr>
+<tr class="memitem:a08aebad26886833267510ac5a41ad709" id="r_a08aebad26886833267510ac5a41ad709"><td class="memItemLeft">const int&#160;</td><td class="memItemRight"><a class="el" href="#a08aebad26886833267510ac5a41ad709">BOX_INNER</a> = 66</td></tr>
+<tr class="memitem:acc926d5efd9175f2804b9ccb9c091a91" id="r_acc926d5efd9175f2804b9ccb9c091a91"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#acc926d5efd9175f2804b9ccb9c091a91">BOX_TOP</a> = &quot;╔════════════════════════════════════════════════════════════════════╗&quot;</td></tr>
+<tr class="memitem:af4db663334c0995381b27df92bff0805" id="r_af4db663334c0995381b27df92bff0805"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#af4db663334c0995381b27df92bff0805">BOX_MID</a> = &quot;╠════════════════════════════════════════════════════════════════════╣&quot;</td></tr>
+<tr class="memitem:a1962bebc8e67e070c70638d7c760edda" id="r_a1962bebc8e67e070c70638d7c760edda"><td class="memItemLeft">const std::string&#160;</td><td class="memItemRight"><a class="el" href="#a1962bebc8e67e070c70638d7c760edda">BOX_BOTTOM</a> = &quot;╚════════════════════════════════════════════════════════════════════╝&quot;</td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a00fe5d2d78ec39cc68cc1129c84431f5" name="a00fe5d2d78ec39cc68cc1129c84431f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00fe5d2d78ec39cc68cc1129c84431f5">&#9670;&#160;</a></span>arrowMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int arrowMenu </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>options</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56e8e2a32e1741df55bb330e9699483a" name="a56e8e2a32e1741df55bb330e9699483a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e8e2a32e1741df55bb330e9699483a">&#9670;&#160;</a></span>boxLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string boxLine </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a58dd672776b693f35a8a53bbcb62a9aa" name="a58dd672776b693f35a8a53bbcb62a9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58dd672776b693f35a8a53bbcb62a9aa">&#9670;&#160;</a></span>boxLineArrow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string boxLineArrow </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad250b149e654b4c2aecd77f1373af74e" name="ad250b149e654b4c2aecd77f1373af74e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad250b149e654b4c2aecd77f1373af74e">&#9670;&#160;</a></span>cursorToRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string cursorToRow </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82e3a320eed037ac8878d4bde7b5717b" name="a82e3a320eed037ac8878d4bde7b5717b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e3a320eed037ac8878d4bde7b5717b">&#9670;&#160;</a></span>displayInBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void displayInBox </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>subtitle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lines</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2af0f0b4f9cde42887bef2d5684c964" name="aa2af0f0b4f9cde42887bef2d5684c964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2af0f0b4f9cde42887bef2d5684c964">&#9670;&#160;</a></span>getReviewerLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; getReviewerLines </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structReviewer.html">Reviewer</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>reviewers</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f" name="aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f">&#9670;&#160;</a></span>getSettingsLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; getSettingsLines </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structParameters.html">Parameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structControl.html">Control</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>control</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8886c23d900eec2f4a7852d3f2322547" name="a8886c23d900eec2f4a7852d3f2322547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8886c23d900eec2f4a7852d3f2322547">&#9670;&#160;</a></span>getSubmissionLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; getSubmissionLines </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>submissions</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5249b254580feb1d22364ba343bb5387" name="a5249b254580feb1d22364ba343bb5387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5249b254580feb1d22364ba343bb5387">&#9670;&#160;</a></span>menuLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string menuLine </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>highlighted</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5ccf5fad15dbd07509f8d34212c0cb5" name="ae5ccf5fad15dbd07509f8d34212c0cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ccf5fad15dbd07509f8d34212c0cb5">&#9670;&#160;</a></span>promptInBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string promptInBox </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>subtitle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>prompt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45773102d5e0238d22ca03ece6f5d80c" name="a45773102d5e0238d22ca03ece6f5d80c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45773102d5e0238d22ca03ece6f5d80c">&#9670;&#160;</a></span>runAssignment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; runAssignment </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structSubmission.html">Submission</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>submissions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structReviewer.html">Reviewer</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>reviewers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structParameters.html">Parameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>params</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structControl.html">Control</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>control</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af69b9c19ba7801236d32d342034b77d6" name="af69b9c19ba7801236d32d342034b77d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af69b9c19ba7801236d32d342034b77d6">&#9670;&#160;</a></span>runBatchMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int runBatchMode </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>inputFile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>outputFile</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a1962bebc8e67e070c70638d7c760edda" name="a1962bebc8e67e070c70638d7c760edda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1962bebc8e67e070c70638d7c760edda">&#9670;&#160;</a></span>BOX_BOTTOM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string BOX_BOTTOM = &quot;╚════════════════════════════════════════════════════════════════════╝&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08aebad26886833267510ac5a41ad709" name="a08aebad26886833267510ac5a41ad709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08aebad26886833267510ac5a41ad709">&#9670;&#160;</a></span>BOX_INNER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int BOX_INNER = 66</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4db663334c0995381b27df92bff0805" name="af4db663334c0995381b27df92bff0805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4db663334c0995381b27df92bff0805">&#9670;&#160;</a></span>BOX_MID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string BOX_MID = &quot;╠════════════════════════════════════════════════════════════════════╣&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc926d5efd9175f2804b9ccb9c091a91" name="acc926d5efd9175f2804b9ccb9c091a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc926d5efd9175f2804b9ccb9c091a91">&#9670;&#160;</a></span>BOX_TOP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string BOX_TOP = &quot;╔════════════════════════════════════════════════════════════════════╗&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a65e357033035a379a603af34d97168" name="a0a65e357033035a379a603af34d97168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a65e357033035a379a603af34d97168">&#9670;&#160;</a></span>CLEAR_SCREEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string CLEAR_SCREEN = &quot;\033[2J\033[H&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a60b2c0b9da30b0df7cb5f5abe10b0db0" name="a60b2c0b9da30b0df7cb5f5abe10b0db0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b2c0b9da30b0df7cb5f5abe10b0db0">&#9670;&#160;</a></span>CURSOR_HIDE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string CURSOR_HIDE = &quot;\033[?25l&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2fbf61b9ffb4dc03fad3d4df41271286" name="a2fbf61b9ffb4dc03fad3d4df41271286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fbf61b9ffb4dc03fad3d4df41271286">&#9670;&#160;</a></span>CURSOR_RESTORE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string CURSOR_RESTORE = &quot;\033[u&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5ff3c97de2aec728b276c2748b6cf9c" name="aa5ff3c97de2aec728b276c2748b6cf9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ff3c97de2aec728b276c2748b6cf9c">&#9670;&#160;</a></span>CURSOR_SAVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string CURSOR_SAVE = &quot;\033[s&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf4a6dee4ed49c0f22dc351a12ba4ef6" name="adf4a6dee4ed49c0f22dc351a12ba4ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf4a6dee4ed49c0f22dc351a12ba4ef6">&#9670;&#160;</a></span>CURSOR_SHOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string CURSOR_SHOW = &quot;\033[?25h&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5db0c7f5fe13f32709c84a8bd310b6eb" name="a5db0c7f5fe13f32709c84a8bd310b6eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db0c7f5fe13f32709c84a8bd310b6eb">&#9670;&#160;</a></span>HIGHLIGHT_OFF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string HIGHLIGHT_OFF = &quot;\033[0m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d43dd5f9b880ab0df99ae693945d73f" name="a3d43dd5f9b880ab0df99ae693945d73f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d43dd5f9b880ab0df99ae693945d73f">&#9670;&#160;</a></span>HIGHLIGHT_ON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string HIGHLIGHT_ON = &quot;\033[7m&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

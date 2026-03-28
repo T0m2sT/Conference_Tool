@@ -1,0 +1,84 @@
+\doxysection{Flow\+Network Class Reference}
+\hypertarget{classFlowNetwork}{}\label{classFlowNetwork}\index{FlowNetwork@{FlowNetwork}}
+
+
+Builds a Max-\/\+Flow network from conference data and solves the review assignment problem.  
+
+
+
+
+{\ttfamily \+\#include $<$Flow\+Network.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \doxymbox{\hyperlink{classFlowNetwork_a5c42f77d71c4a3ae8e9b101adb841fa9}{build\+And\+Solve}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions, const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers, const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, int mode)
+\begin{DoxyCompactList}\small\item\em Build the flow network and compute the max-\/flow assignment. \end{DoxyCompactList}\item 
+std::\+vector$<$ int $>$ \doxymbox{\hyperlink{classFlowNetwork_aabc9eb47cdc3311795ec82a4b4bf9a2a}{risk\+Analysis\+K1}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions, const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers, const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, int mode)
+\begin{DoxyCompactList}\small\item\em Run risk analysis for K=1. Tests each reviewer\textquotesingle{}s removal and checks if all submissions still get Min\+Reviews. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Builds a Max-\/\+Flow network from conference data and solves the review assignment problem. 
+
+Node naming scheme (used as vertex info in \doxylink{classGraph}{Graph$<$std::\+string$>$}):\+ "{}source"{} — the super source "{}sink"{} — the super sink "{}sub\+\_\+$<$id$>$"{} — submission node "{}rev\+\_\+$<$id$>$"{} — reviewer node
+
+Time complexity of build\+And\+Solve:\+ O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) for Edmonds-\/\+Karp, where V = 2 + \texorpdfstring{$\vert$}{|}submissions\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}reviewers\texorpdfstring{$\vert$}{|}, E = edges based on domain matching. 
+
+\label{doc-func-members}
+\Hypertarget{classFlowNetwork_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFlowNetwork_a5c42f77d71c4a3ae8e9b101adb841fa9}\index{FlowNetwork@{FlowNetwork}!buildAndSolve@{buildAndSolve}}
+\index{buildAndSolve@{buildAndSolve}!FlowNetwork@{FlowNetwork}}
+\doxysubsubsection{\texorpdfstring{buildAndSolve()}{buildAndSolve()}}
+{\footnotesize\ttfamily \label{classFlowNetwork_a5c42f77d71c4a3ae8e9b101adb841fa9} 
+\doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} Flow\+Network::\+build\+And\+Solve (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{int}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Build the flow network and compute the max-\/flow assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em submissions} & Parsed submissions \\
+\hline
+{\em reviewers} & Parsed reviewers \\
+\hline
+{\em params} & Problem parameters \\
+\hline
+{\em mode} & Generate\+Assignments mode (1, 2, or 3) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structAssignmentResult}{Assignment\+Result} containing assignments and any missing reviews 
+\end{DoxyReturn}
+\Hypertarget{classFlowNetwork_aabc9eb47cdc3311795ec82a4b4bf9a2a}\index{FlowNetwork@{FlowNetwork}!riskAnalysisK1@{riskAnalysisK1}}
+\index{riskAnalysisK1@{riskAnalysisK1}!FlowNetwork@{FlowNetwork}}
+\doxysubsubsection{\texorpdfstring{riskAnalysisK1()}{riskAnalysisK1()}}
+{\footnotesize\ttfamily \label{classFlowNetwork_aabc9eb47cdc3311795ec82a4b4bf9a2a} 
+std::\+vector$<$ int $>$ Flow\+Network::\+risk\+Analysis\+K1 (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{int}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Run risk analysis for K=1. Tests each reviewer\textquotesingle{}s removal and checks if all submissions still get Min\+Reviews. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em submissions} & Parsed submissions \\
+\hline
+{\em reviewers} & Parsed reviewers \\
+\hline
+{\em params} & Problem parameters \\
+\hline
+{\em mode} & Generate\+Assignments mode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sorted vector of reviewer IDs whose removal breaks the assignment 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{FlowNetwork_8h}{Flow\+Network.\+h}}\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{FlowNetwork_8cpp}{Flow\+Network.\+cpp}}\end{DoxyCompactItemize}

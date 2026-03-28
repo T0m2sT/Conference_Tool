@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['_7egraph_0',['~Graph',['../classGraph.html#a43eab1460b5c8ceaa526b40e56a0fb0c',1,'Graph']]]
+  ['vertex_0',['Vertex',['../classVertex.html',1,'Vertex&lt; T &gt;'],['../classVertex.html#afcbdd4d4198b672356559cb8fa088408',1,'Vertex::Vertex()']]],
+  ['vertexset_1',['vertexSet',['../classGraph.html#a26b3a6b9c61f02f5b2cd38ad4c6a4953',1,'Graph']]],
+  ['visited_2',['visited',['../classVertex.html#a187a2fe4ff50261cf3c15b8cda7dfc56',1,'Vertex']]]
 ];

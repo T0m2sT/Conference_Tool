@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameters_0',['Parameters',['../structParameters.html',1,'']]]
+  ['flownetwork_0',['FlowNetwork',['../classFlowNetwork.html',1,'']]]
 ];

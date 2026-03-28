@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reviewer_0',['Reviewer',['../structReviewer.html',1,'']]]
+  ['graph_0',['Graph',['../classGraph.html',1,'']]]
 ];

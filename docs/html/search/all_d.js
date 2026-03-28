@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['removeedge_0',['removeEdge',['../classVertex.html#ac1f1dd0a8e1019a242f1120d6559c754',1,'Vertex::removeEdge()'],['../classGraph.html#a8949d071d45bf93e171e275462e1007a',1,'Graph::removeEdge()']]],
-  ['removeoutgoingedges_1',['removeOutgoingEdges',['../classVertex.html#a414ce58fdf35ee5200a82912f3865506',1,'Vertex']]],
-  ['removevertex_2',['removeVertex',['../classGraph.html#af9c903104ad69a7782979fa9caedf163',1,'Graph']]],
-  ['reverse_3',['reverse',['../classEdge.html#a6c1e5191f85afbd20cf6198815c9b079',1,'Edge']]],
-  ['reviewer_4',['Reviewer',['../structReviewer.html',1,'Reviewer'],['../structReviewer.html#ac9966f427a3bb05458db91e205df7291',1,'Reviewer::Reviewer()']]],
-  ['riskanalysis_5',['riskAnalysis',['../structControl.html#a51dcb4a3f5c2793db8229a3cb0e15ce9',1,'Control']]]
+  ['parameters_0',['Parameters',['../structParameters.html',1,'Parameters'],['../structParameters.html#af4d94ee360ac0157d9065f78797fe9a1',1,'Parameters::Parameters()']]],
+  ['parsefile_1',['parseFile',['../classCSVParser.html#ae5d043420e6e96684721914a157b38a3',1,'CSVParser']]],
+  ['path_2',['path',['../classVertex.html#abfc6d8f64308c47901c72d5ebceda80e',1,'Vertex']]],
+  ['pathmatrix_3',['pathMatrix',['../classGraph.html#afb9524726f8f3cda3115a0d03e3f6e09',1,'Graph']]],
+  ['primarydomain_4',['primaryDomain',['../structSubmission.html#aa983dd3d98f1ac3ee5a713d01ca875ed',1,'Submission']]],
+  ['primaryexpertise_5',['primaryExpertise',['../structReviewer.html#a1a6ba130656856000843bbc57e811486',1,'Reviewer']]],
+  ['primaryreviewerexpertise_6',['primaryReviewerExpertise',['../structParameters.html#a93181dc57462e044aaac72d544c2c0ed',1,'Parameters']]],
+  ['primarysubmissiondomain_7',['primarySubmissionDomain',['../structParameters.html#a22fdf73cc9aa31f94e2edb0738b91ce4',1,'Parameters']]],
+  ['processing_8',['processing',['../classVertex.html#ae575d4b9a6b1ada3f9626c458c060f54',1,'Vertex']]],
+  ['promptinbox_9',['promptInBox',['../main_8cpp.html#ae5ccf5fad15dbd07509f8d34212c0cb5',1,'main.cpp']]]
 ];
