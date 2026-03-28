@@ -162,19 +162,24 @@ int main(int argc, char *argv[]) {
 
         switch (choice) {
             case 1: {
+                std::string defaultpath = "dataset/input/";
+                std::string defaultextension = ".csv";
                 std::string filename;
-                std::cout << "Enter input file path: ";
+                std::cout << "Enter input file name: ";
                 std::cin >> filename;
                 submissions.clear();
                 reviewers.clear();
                 params = Parameters();
                 control = Control();
+                filename = defaultpath + filename + defaultextension;
                 if (parser.parseFile(filename, submissions, reviewers, params, control)) {
                     loaded = true;
                     std::cout << "Loaded " << submissions.size() << " submissions and "
                               << reviewers.size() << " reviewers.\n";
                 } else {
                     std::cerr << "Error: Failed to parse file.\n";
+                    // Allows the user to view how file's path is interpreted in case of error, for correction in next menu interaction without leaving the session.
+                    std::cout << "\nConfirm path wanted: \"" << filename << "\"\n"; 
                 }
                 break;
             }
