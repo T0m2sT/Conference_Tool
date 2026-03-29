@@ -1,7 +1,7 @@
 #ifndef OUTPUTWRITER_H
 #define OUTPUTWRITER_H
 
-#include "FlowNetwork.h"
+#include "models/AssignmentData.h"
 #include <string>
 #include <vector>
 #include <fstream>
