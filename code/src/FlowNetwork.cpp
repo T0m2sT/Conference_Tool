@@ -149,6 +149,12 @@ AssignmentResult FlowNetwork::buildAndSolve(
     int totalRequired = (int)submissions.size() * params.minReviewsPerSubmission;
     int maxFlow = edmondsKarp(graph, "source", "sink");
 
+    // This is theoretically redundant with the per-submission check below,
+    // but kept for clarity and correctness validation
+    if (maxFlow < totalRequired) {
+        result.fullySatisfied = false;
+    }
+
     // --- Extract assignments from flow ---
     for (const auto &sub : submissions) {
         std::string subNode = "sub_" + std::to_string(sub.id);
