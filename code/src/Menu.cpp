@@ -3,8 +3,6 @@
 #include <termios.h>
 #include <unistd.h>
 #include "Menu.h"
-#include "FlowNetwork.h"
-#include "OutputWriter.h"
 
 // ANSI escape code constants
 const std::string Menu::CLEAR_SCREEN    = "\033[2J\033[H";
@@ -149,104 +147,4 @@ int Menu::arrowMenu(const std::vector<std::string> &options) {
     std::cout << CURSOR_SHOW;
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
     return selected;
-}
-
-std::vector<std::string> Menu::getSubmissionLines(const std::vector<Submission> &submissions) {
-    std::vector<std::string> lines;
-    if (submissions.empty()) { lines.push_back("No submissions loaded."); return lines; }
-    for (const auto &s : submissions) {
-        std::string line = "ID:" + std::to_string(s.id)
-            + " | " + s.title
-            + " | D:" + std::to_string(s.primaryDomain);
-        if (s.secondaryDomain != -1) line += "/" + std::to_string(s.secondaryDomain);
-        lines.push_back(line);
-    }
-    return lines;
-}
-
-std::vector<std::string> Menu::getReviewerLines(const std::vector<Reviewer> &reviewers) {
-    std::vector<std::string> lines;
-    if (reviewers.empty()) { lines.push_back("No reviewers loaded."); return lines; }
-    for (const auto &r : reviewers) {
-        std::string line = "ID:" + std::to_string(r.id)
-            + " | " + r.name
-            + " | E:" + std::to_string(r.primaryExpertise);
-        if (r.secondaryExpertise != -1) line += "/" + std::to_string(r.secondaryExpertise);
-        lines.push_back(line);
-    }
-    return lines;
-}
-
-std::vector<std::string> Menu::getSettingsLines(const Parameters &params, const Control &control) {
-    std::vector<std::string> lines;
-    lines.push_back("--- Parameters ---");
-    lines.push_back("MinReviews/Sub: " + std::to_string(params.minReviewsPerSubmission));
-    lines.push_back("MaxReviews/Rev: " + std::to_string(params.maxReviewsPerReviewer));
-    lines.push_back("PrimaryRevExpertise: " + std::to_string(params.primaryReviewerExpertise));
-    lines.push_back("SecondRevExpertise: " + std::to_string(params.secondaryReviewerExpertise));
-    lines.push_back("PrimarySubDomain: " + std::to_string(params.primarySubmissionDomain));
-    lines.push_back("SecondSubDomain: " + std::to_string(params.secondarySubmissionDomain));
-    lines.push_back("");
-    lines.push_back("--- Control ---");
-    lines.push_back("GenerateAssignments: " + std::to_string(control.generateAssignments));
-    lines.push_back("RiskAnalysis: " + std::to_string(control.riskAnalysis));
-    lines.push_back("Output: " + control.outputFileName);
-    return lines;
-}
-
-std::vector<std::string> Menu::runAssignment(const std::vector<Submission> &submissions,
-                                             const std::vector<Reviewer> &reviewers,
-                                             const Parameters &params,
-                                             const Control &control) {
-    std::vector<std::string> lines;
-    if (submissions.empty() || reviewers.empty()) {
-        lines.push_back("Please load an input file first.");
-        return lines;
-    }
-
-    FlowNetwork flowNet;
-    int mode = control.generateAssignments;
-    if (mode == 0) mode = 1;
-
-    AssignmentResult result = flowNet.buildAndSolve(submissions, reviewers, params, mode);
-
-    std::vector<int> atRisk;
-    if (control.riskAnalysis == 1) {
-        atRisk = flowNet.riskAnalysisK1(submissions, reviewers, params, mode);
-    }
-
-    lines.push_back("Total: " + std::to_string(result.totalAssignments));
-    lines.push_back("");
-    if (result.fullySatisfied) {
-        lines.push_back("All submissions fully assigned.");
-    } else {
-        lines.push_back("Missing reviews:");
-        for (const auto &m : result.missingReviews) {
-            lines.push_back("  Sub " + std::to_string(m.submissionId)
-                + " (D:" + std::to_string(m.domain)
-                + ") missing " + std::to_string(m.missingCount));
-        }
-    }
-
-    if (control.riskAnalysis == 1) {
-        lines.push_back("");
-        if (atRisk.empty()) {
-            lines.push_back("Risk (K=1): No at-risk reviewers.");
-        } else {
-            std::string riskLine = "Risk (K=1): ";
-            for (size_t i = 0; i < atRisk.size(); i++) {
-                if (i > 0) riskLine += ", ";
-                riskLine += std::to_string(atRisk[i]);
-            }
-            lines.push_back(riskLine);
-        }
-    }
-
-    if (control.generateAssignments != 0) {
-        OutputWriter::write(control.outputFileName, result, control.riskAnalysis, atRisk);
-        lines.push_back("");
-        lines.push_back("Output: " + control.outputFileName);
-    }
-
-    return lines;
 }

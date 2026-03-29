@@ -1,12 +1,47 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <sys/stat.h>
+#include <csignal>
+#include <termios.h>
+#include <unistd.h>
 #include "parser/CSVParser.h"
 #include "models/ConferenceData.h"
 #include "FlowNetwork.h"
 #include "OutputWriter.h"
+#include "DisplayFormatter.h"
 #include "Menu.h"
+
+/**
+ * @brief Runs the assignment algorithm and returns formatted display lines.
+ *
+ * Bridges the algorithm (FlowNetwork) and the UI (Menu) without either
+ * knowing about the other. Also writes the output file as a side effect.
+ */
+std::vector<std::string> runAssignment(const std::vector<Submission> &submissions,
+                                       const std::vector<Reviewer> &reviewers,
+                                       const Parameters &params,
+                                       const Control &control) {
+    if (submissions.empty() || reviewers.empty()) {
+        return {"Please load an input file first."};
+    }
+
+    FlowNetwork flowNet;
+    int mode = control.generateAssignments;
+    if (mode == 0) mode = 1;
+
+    AssignmentResult result = flowNet.buildAndSolve(submissions, reviewers, params, mode);
+
+    std::vector<int> atRisk;
+    if (control.riskAnalysis >= 1) {
+        atRisk = flowNet.riskAnalysisK1(submissions, reviewers, params, mode);
+    }
+
+    if (control.generateAssignments != 0) {
+        OutputWriter::write(control.outputFileName, result, control.riskAnalysis, atRisk);
+    }
+
+    return DisplayFormatter::formatAssignmentResult(result, control, atRisk);
+}
 
 int runBatchMode(const std::string &inputFile, const std::string &outputFile) {
     CSVParser parser;
@@ -29,7 +64,7 @@ int runBatchMode(const std::string &inputFile, const std::string &outputFile) {
     AssignmentResult result = flowNet.buildAndSolve(submissions, reviewers, params, mode);
 
     std::vector<int> atRisk;
-    if (control.riskAnalysis == 1) {
+    if (control.riskAnalysis >= 1) {
         atRisk = flowNet.riskAnalysisK1(submissions, reviewers, params, mode);
     }
 
@@ -37,7 +72,18 @@ int runBatchMode(const std::string &inputFile, const std::string &outputFile) {
     return 0;
 }
 
+struct termios g_originalTermios;
+
+void restoreTerminal(int) {
+    tcsetattr(STDIN_FILENO, TCSANOW, &g_originalTermios);
+    std::cout << "\033[?25h" << std::flush;
+    std::exit(0);
+}
+
 int main(int argc, char *argv[]) {
+    tcgetattr(STDIN_FILENO, &g_originalTermios);
+    std::signal(SIGINT, restoreTerminal);
+
     // Batch mode: ./da_tool -b input.csv output.csv
     if (argc == 4 && std::string(argv[1]) == "-b") {
         return runBatchMode(argv[2], argv[3]);
@@ -86,19 +132,19 @@ int main(int argc, char *argv[]) {
                 break;
             }
             case 1:
-                menu.displayInBox("Submissions", Menu::getSubmissionLines(submissions));
+                menu.displayInBox("Submissions", DisplayFormatter::formatSubmissions(submissions));
                 break;
             case 2:
-                menu.displayInBox("Reviewers", Menu::getReviewerLines(reviewers));
+                menu.displayInBox("Reviewers", DisplayFormatter::formatReviewers(reviewers));
                 break;
             case 3:
-                menu.displayInBox("Parameters & Control", Menu::getSettingsLines(params, control));
+                menu.displayInBox("Parameters & Control", DisplayFormatter::formatSettings(params, control));
                 break;
             case 4:
-                menu.displayInBox("Assignment Result", Menu::runAssignment(submissions, reviewers, params, control));
+                menu.displayInBox("Assignment Result", runAssignment(submissions, reviewers, params, control));
                 break;
             case 5:
-                std::cout << Menu::CLEAR_SCREEN;
+                std::cout << "\033[?25h" << Menu::CLEAR_SCREEN;
                 return 0;
         }
     }

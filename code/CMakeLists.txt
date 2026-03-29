@@ -11,4 +11,5 @@ add_executable(da_tool
     src/CSVParser.cpp
     src/FlowNetwork.cpp
     src/OutputWriter.cpp
+    src/DisplayFormatter.cpp
 )

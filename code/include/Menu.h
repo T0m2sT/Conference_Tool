@@ -3,21 +3,18 @@
 
 #include <string>
 #include <vector>
-#include "models/ConferenceData.h"
 
+/**
+ * @brief Terminal UI renderer — draws boxes, arrow menus, and prompts.
+ *
+ * Pure presentation layer. Knows nothing about domain data (submissions,
+ * reviewers, flow networks). Receives pre-formatted strings to display.
+ */
 class Menu {
 public:
     void displayInBox(const std::string &subtitle, const std::vector<std::string> &lines);
     std::string promptInBox(const std::string &subtitle, const std::string &prompt);
     int arrowMenu(const std::vector<std::string> &options);
-
-    static std::vector<std::string> getSubmissionLines(const std::vector<Submission> &submissions);
-    static std::vector<std::string> getReviewerLines(const std::vector<Reviewer> &reviewers);
-    static std::vector<std::string> getSettingsLines(const Parameters &params, const Control &control);
-    static std::vector<std::string> runAssignment(const std::vector<Submission> &submissions,
-                                                  const std::vector<Reviewer> &reviewers,
-                                                  const Parameters &params,
-                                                  const Control &control);
 
     static const std::string CLEAR_SCREEN;
 
