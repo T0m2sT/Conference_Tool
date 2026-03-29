@@ -1,0 +1,51 @@
+\doxysection{Output\+Writer Class Reference}
+\hypertarget{classOutputWriter}{}\label{classOutputWriter}\index{OutputWriter@{OutputWriter}}
+
+
+Writes assignment results and risk analysis to an output CSV file.  
+
+
+
+
+{\ttfamily \+\#include $<$Output\+Writer.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{classOutputWriter_a6675dc8236e806d81faf9dd8034e220f}{write}} (const std::\+string \&filename, const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&result, int risk\+Analysis, const std::\+vector$<$ int $>$ \&at\+Risk\+Reviewers)
+\begin{DoxyCompactList}\small\item\em Write the full output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Writes assignment results and risk analysis to an output CSV file. 
+
+\label{doc-func-members}
+\Hypertarget{classOutputWriter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classOutputWriter_a6675dc8236e806d81faf9dd8034e220f}\index{OutputWriter@{OutputWriter}!write@{write}}
+\index{write@{write}!OutputWriter@{OutputWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{classOutputWriter_a6675dc8236e806d81faf9dd8034e220f} 
+void Output\+Writer::\+write (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filename}{, }\item[{const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&}]{result}{, }\item[{int}]{risk\+Analysis}{, }\item[{const std::\+vector$<$ int $>$ \&}]{at\+Risk\+Reviewers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Write the full output file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Output file path \\
+\hline
+{\em result} & \doxylink{structAssignment}{Assignment} results \\
+\hline
+{\em risk\+Analysis} & Risk analysis K value (0 = no risk section) \\
+\hline
+{\em at\+Risk\+Reviewers} & Sorted list of at-\/risk reviewer IDs \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{OutputWriter_8h}{Output\+Writer.\+h}}\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{OutputWriter_8cpp}{Output\+Writer.\+cpp}}\end{DoxyCompactItemize}

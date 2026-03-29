@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['title_0',['title',['../structSubmission.html#ae143f4081965aaa80af89fc3a1b5baa6',1,'Submission']]]
+  ['queueindex_0',['queueIndex',['../classVertex.html#a721ab622207a73c5fae7b9abad6c07cc',1,'Vertex']]]
 ];

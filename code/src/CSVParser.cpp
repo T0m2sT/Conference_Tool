@@ -4,8 +4,8 @@
 #include <sstream>
 
 std::string CSVParser::trim(const std::string &s) {
-    std::size_t start = s.find_first_not_of(" \t\r\n");
-    std::size_t end = s.find_last_not_of(" \t\r\n");
+    std::size_t start = s.find_first_not_of(" \t\r\n\"");
+    std::size_t end = s.find_last_not_of(" \t\r\n\"");
     return (start == std::string::npos) ? "" : s.substr(start, end - start + 1);
 }
 
@@ -78,7 +78,7 @@ void CSVParser::parseLine(const std::vector<std::string> &tokens, Section sectio
                 std::string value = tokens[1];
                 if (key == "GenerateAssignments") control.generateAssignments = std::stoi(value);
                 else if (key == "RiskAnalysis") control.riskAnalysis = std::stoi(value);
-                else if (key == "OutputFileName") control.outputFileName = value;
+                else if (key == "OutputFileName") control.outputFileName = "assignments/" + value;
             }
             break;
 
@@ -103,14 +103,23 @@ bool CSVParser::parseFile(const std::string &filename, std::vector<Submission> &
     std::string line;
 
     while (std::getline(file, line)) {
-        line = trim(line);
-        if (line.empty() || line[0] == '#') {
-            CSVParser::Section newSection = detectSection(line);
+        std::string trimmedLine = trim(line);
+        
+        if (trimmedLine.empty()) continue;
+        
+        if (trimmedLine[0] == '#') {
+            CSVParser::Section newSection = detectSection(trimmedLine);
             section = (newSection == NONE) ? section : newSection;
             continue;
         }
+        
+        std::size_t hashPos = line.find('#');
+        std::string beforeHash = (hashPos != std::string::npos) ? line.substr(0, hashPos) : line;
 
-        std::vector<std::string> tokens = splitCSVLine(line);
+        std::string dataLine = trim(beforeHash);
+        if (dataLine.empty()) continue;
+
+        std::vector<std::string> tokens = splitCSVLine(dataLine);
         parseLine(tokens, section, submissions, reviewers, params, control);
     }
 

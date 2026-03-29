@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['findvertex_0',['findVertex',['../classGraph.html#a8b7b7465fbfd562e2a469f90a437ab75',1,'Graph']]],
-  ['findvertexidx_1',['findVertexIdx',['../classGraph.html#a676cdfb976eccfa82b631d2094c1cdac',1,'Graph']]],
-  ['flow_2',['flow',['../classEdge.html#a30808601fa37f509147eabf9cc5f9ed6',1,'Edge']]]
+  ['edge_0',['Edge',['../classEdge.html',1,'Edge&lt; T &gt;'],['../classEdge.html#ab976213419283ed754f42f57b195a288',1,'Edge::Edge()']]],
+  ['email_1',['email',['../structSubmission.html#ab524f4484bf346c7ba0d94b0a7dd114c',1,'Submission::email'],['../structReviewer.html#a5ae05709e98e328427aed3ead8912fd8',1,'Reviewer::email']]]
 ];

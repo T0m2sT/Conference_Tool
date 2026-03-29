@@ -1,2 +1,222 @@
 \doxysection{/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+main.cpp File Reference}
 \hypertarget{main_8cpp}{}\label{main_8cpp}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/src/main.cpp@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/src/main.cpp}}
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$termios.\+h$>$}\newline
+{\ttfamily \+\#include $<$unistd.\+h$>$}\newline
+{\ttfamily \+\#include $<$sys/\+select.\+h$>$}\newline
+{\ttfamily \+\#include $<$limits$>$}\newline
+{\ttfamily \+\#include $<$sys/\+stat.\+h$>$}\newline
+{\ttfamily \+\#include "{}parser/\+\+CSVParser.\+h"{}}\newline
+{\ttfamily \+\#include "{}models/\+\+Conference\+Data.\+h"{}}\newline
+{\ttfamily \+\#include "{}Flow\+Network.\+h"{}}\newline
+{\ttfamily \+\#include "{}Output\+Writer.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std::\+string \doxymbox{\hyperlink{main_8cpp_ad250b149e654b4c2aecd77f1373af74e}{cursor\+To\+Row}} (int row)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8cpp_a56e8e2a32e1741df55bb330e9699483a}{box\+Line}} (const std::\+string \&text)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8cpp_a58dd672776b693f35a8a53bbcb62a9aa}{box\+Line\+Arrow}} (const std::\+string \&text)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8cpp_a5249b254580feb1d22364ba343bb5387}{menu\+Line}} (const std::\+string \&text, bool highlighted)
+\item 
+void \doxymbox{\hyperlink{main_8cpp_a82e3a320eed037ac8878d4bde7b5717b}{display\+In\+Box}} (const std::\+string \&subtitle, const std::\+vector$<$ std::\+string $>$ \&lines)
+\item 
+std::\+string \doxymbox{\hyperlink{main_8cpp_ae5ccf5fad15dbd07509f8d34212c0cb5}{prompt\+In\+Box}} (const std::\+string \&subtitle, const std::\+string \&prompt)
+\item 
+int \doxymbox{\hyperlink{main_8cpp_a00fe5d2d78ec39cc68cc1129c84431f5}{arrow\+Menu}} (const std::\+vector$<$ std::\+string $>$ \&options)
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{main_8cpp_a8886c23d900eec2f4a7852d3f2322547}{get\+Submission\+Lines}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions)
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{main_8cpp_aa2af0f0b4f9cde42887bef2d5684c964}{get\+Reviewer\+Lines}} (const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers)
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{main_8cpp_aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f}{get\+Settings\+Lines}} (const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, const \doxymbox{\hyperlink{structControl}{Control}} \&control)
+\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{main_8cpp_a45773102d5e0238d22ca03ece6f5d80c}{run\+Assignment}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions, const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers, const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, const \doxymbox{\hyperlink{structControl}{Control}} \&control)
+\item 
+int \doxymbox{\hyperlink{main_8cpp_af69b9c19ba7801236d32d342034b77d6}{run\+Batch\+Mode}} (const std::\+string \&input\+File, const std::\+string \&output\+File)
+\item 
+int \doxymbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\+[$\,$]\+)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_a0a65e357033035a379a603af34d97168}{CLEAR\+\_\+\+SCREEN}} = "{}\textbackslash{}033\+[2J\textbackslash{}033\+[H"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_a3d43dd5f9b880ab0df99ae693945d73f}{HIGHLIGHT\+\_\+\+ON}} = "{}\textbackslash{}033\+[7m"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_a5db0c7f5fe13f32709c84a8bd310b6eb}{HIGHLIGHT\+\_\+\+OFF}} = "{}\textbackslash{}033\+[0m"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_a60b2c0b9da30b0df7cb5f5abe10b0db0}{CURSOR\+\_\+\+HIDE}} = "{}\textbackslash{}033\+[?25l"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_adf4a6dee4ed49c0f22dc351a12ba4ef6}{CURSOR\+\_\+\+SHOW}} = "{}\textbackslash{}033\+[?25h"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_aa5ff3c97de2aec728b276c2748b6cf9c}{CURSOR\+\_\+\+SAVE}} = "{}\textbackslash{}033\+[s"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_a2fbf61b9ffb4dc03fad3d4df41271286}{CURSOR\+\_\+\+RESTORE}} = "{}\textbackslash{}033\+[u"{}
+\item 
+const int \doxymbox{\hyperlink{main_8cpp_a08aebad26886833267510ac5a41ad709}{BOX\+\_\+\+INNER}} = 66
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_acc926d5efd9175f2804b9ccb9c091a91}{BOX\+\_\+\+TOP}} = "{}╔════════════════════════════════════════════════════════════════════╗"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_af4db663334c0995381b27df92bff0805}{BOX\+\_\+\+MID}} = "{}╠════════════════════════════════════════════════════════════════════╣"{}
+\item 
+const std::\+string \doxymbox{\hyperlink{main_8cpp_a1962bebc8e67e070c70638d7c760edda}{BOX\+\_\+\+BOTTOM}} = "{}╚════════════════════════════════════════════════════════════════════╝"{}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a00fe5d2d78ec39cc68cc1129c84431f5}\index{main.cpp@{main.cpp}!arrowMenu@{arrowMenu}}
+\index{arrowMenu@{arrowMenu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{arrowMenu()}{arrowMenu()}}
+{\footnotesize\ttfamily \label{main_8cpp_a00fe5d2d78ec39cc68cc1129c84431f5} 
+int arrow\+Menu (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ std::\+string $>$ \&}]{options}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a56e8e2a32e1741df55bb330e9699483a}\index{main.cpp@{main.cpp}!boxLine@{boxLine}}
+\index{boxLine@{boxLine}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{boxLine()}{boxLine()}}
+{\footnotesize\ttfamily \label{main_8cpp_a56e8e2a32e1741df55bb330e9699483a} 
+std::\+string box\+Line (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{text}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a58dd672776b693f35a8a53bbcb62a9aa}\index{main.cpp@{main.cpp}!boxLineArrow@{boxLineArrow}}
+\index{boxLineArrow@{boxLineArrow}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{boxLineArrow()}{boxLineArrow()}}
+{\footnotesize\ttfamily \label{main_8cpp_a58dd672776b693f35a8a53bbcb62a9aa} 
+std::\+string box\+Line\+Arrow (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{text}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ad250b149e654b4c2aecd77f1373af74e}\index{main.cpp@{main.cpp}!cursorToRow@{cursorToRow}}
+\index{cursorToRow@{cursorToRow}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{cursorToRow()}{cursorToRow()}}
+{\footnotesize\ttfamily \label{main_8cpp_ad250b149e654b4c2aecd77f1373af74e} 
+std::\+string cursor\+To\+Row (\begin{DoxyParamCaption}\item[{int}]{row}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a82e3a320eed037ac8878d4bde7b5717b}\index{main.cpp@{main.cpp}!displayInBox@{displayInBox}}
+\index{displayInBox@{displayInBox}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{displayInBox()}{displayInBox()}}
+{\footnotesize\ttfamily \label{main_8cpp_a82e3a320eed037ac8878d4bde7b5717b} 
+void display\+In\+Box (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{subtitle}{, }\item[{const std::\+vector$<$ std::\+string $>$ \&}]{lines}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_aa2af0f0b4f9cde42887bef2d5684c964}\index{main.cpp@{main.cpp}!getReviewerLines@{getReviewerLines}}
+\index{getReviewerLines@{getReviewerLines}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getReviewerLines()}{getReviewerLines()}}
+{\footnotesize\ttfamily \label{main_8cpp_aa2af0f0b4f9cde42887bef2d5684c964} 
+std::\+vector$<$ std::\+string $>$ get\+Reviewer\+Lines (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f}\index{main.cpp@{main.cpp}!getSettingsLines@{getSettingsLines}}
+\index{getSettingsLines@{getSettingsLines}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getSettingsLines()}{getSettingsLines()}}
+{\footnotesize\ttfamily \label{main_8cpp_aa48f4cd6cdf273cf5c6fdcc1a0cc4c1f} 
+std::\+vector$<$ std::\+string $>$ get\+Settings\+Lines (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{structControl}{Control}} \&}]{control}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a8886c23d900eec2f4a7852d3f2322547}\index{main.cpp@{main.cpp}!getSubmissionLines@{getSubmissionLines}}
+\index{getSubmissionLines@{getSubmissionLines}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getSubmissionLines()}{getSubmissionLines()}}
+{\footnotesize\ttfamily \label{main_8cpp_a8886c23d900eec2f4a7852d3f2322547} 
+std::\+vector$<$ std::\+string $>$ get\+Submission\+Lines (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a5249b254580feb1d22364ba343bb5387}\index{main.cpp@{main.cpp}!menuLine@{menuLine}}
+\index{menuLine@{menuLine}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{menuLine()}{menuLine()}}
+{\footnotesize\ttfamily \label{main_8cpp_a5249b254580feb1d22364ba343bb5387} 
+std::\+string menu\+Line (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{text}{, }\item[{bool}]{highlighted}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ae5ccf5fad15dbd07509f8d34212c0cb5}\index{main.cpp@{main.cpp}!promptInBox@{promptInBox}}
+\index{promptInBox@{promptInBox}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{promptInBox()}{promptInBox()}}
+{\footnotesize\ttfamily \label{main_8cpp_ae5ccf5fad15dbd07509f8d34212c0cb5} 
+std::\+string prompt\+In\+Box (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{subtitle}{, }\item[{const std::\+string \&}]{prompt}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a45773102d5e0238d22ca03ece6f5d80c}\index{main.cpp@{main.cpp}!runAssignment@{runAssignment}}
+\index{runAssignment@{runAssignment}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{runAssignment()}{runAssignment()}}
+{\footnotesize\ttfamily \label{main_8cpp_a45773102d5e0238d22ca03ece6f5d80c} 
+std::\+vector$<$ std::\+string $>$ run\+Assignment (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{structControl}{Control}} \&}]{control}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_af69b9c19ba7801236d32d342034b77d6}\index{main.cpp@{main.cpp}!runBatchMode@{runBatchMode}}
+\index{runBatchMode@{runBatchMode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{runBatchMode()}{runBatchMode()}}
+{\footnotesize\ttfamily \label{main_8cpp_af69b9c19ba7801236d32d342034b77d6} 
+int run\+Batch\+Mode (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{input\+File}{, }\item[{const std::\+string \&}]{output\+File}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{main_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a1962bebc8e67e070c70638d7c760edda}\index{main.cpp@{main.cpp}!BOX\_BOTTOM@{BOX\_BOTTOM}}
+\index{BOX\_BOTTOM@{BOX\_BOTTOM}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BOX\_BOTTOM}{BOX\_BOTTOM}}
+{\footnotesize\ttfamily \label{main_8cpp_a1962bebc8e67e070c70638d7c760edda} 
+const std::\+string BOX\+\_\+\+BOTTOM = "{}╚════════════════════════════════════════════════════════════════════╝"{}}
+
+\Hypertarget{main_8cpp_a08aebad26886833267510ac5a41ad709}\index{main.cpp@{main.cpp}!BOX\_INNER@{BOX\_INNER}}
+\index{BOX\_INNER@{BOX\_INNER}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BOX\_INNER}{BOX\_INNER}}
+{\footnotesize\ttfamily \label{main_8cpp_a08aebad26886833267510ac5a41ad709} 
+const int BOX\+\_\+\+INNER = 66}
+
+\Hypertarget{main_8cpp_af4db663334c0995381b27df92bff0805}\index{main.cpp@{main.cpp}!BOX\_MID@{BOX\_MID}}
+\index{BOX\_MID@{BOX\_MID}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BOX\_MID}{BOX\_MID}}
+{\footnotesize\ttfamily \label{main_8cpp_af4db663334c0995381b27df92bff0805} 
+const std::\+string BOX\+\_\+\+MID = "{}╠════════════════════════════════════════════════════════════════════╣"{}}
+
+\Hypertarget{main_8cpp_acc926d5efd9175f2804b9ccb9c091a91}\index{main.cpp@{main.cpp}!BOX\_TOP@{BOX\_TOP}}
+\index{BOX\_TOP@{BOX\_TOP}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BOX\_TOP}{BOX\_TOP}}
+{\footnotesize\ttfamily \label{main_8cpp_acc926d5efd9175f2804b9ccb9c091a91} 
+const std::\+string BOX\+\_\+\+TOP = "{}╔════════════════════════════════════════════════════════════════════╗"{}}
+
+\Hypertarget{main_8cpp_a0a65e357033035a379a603af34d97168}\index{main.cpp@{main.cpp}!CLEAR\_SCREEN@{CLEAR\_SCREEN}}
+\index{CLEAR\_SCREEN@{CLEAR\_SCREEN}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_SCREEN}{CLEAR\_SCREEN}}
+{\footnotesize\ttfamily \label{main_8cpp_a0a65e357033035a379a603af34d97168} 
+const std::\+string CLEAR\+\_\+\+SCREEN = "{}\textbackslash{}033\+[2J\textbackslash{}033\+[H"{}}
+
+\Hypertarget{main_8cpp_a60b2c0b9da30b0df7cb5f5abe10b0db0}\index{main.cpp@{main.cpp}!CURSOR\_HIDE@{CURSOR\_HIDE}}
+\index{CURSOR\_HIDE@{CURSOR\_HIDE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CURSOR\_HIDE}{CURSOR\_HIDE}}
+{\footnotesize\ttfamily \label{main_8cpp_a60b2c0b9da30b0df7cb5f5abe10b0db0} 
+const std::\+string CURSOR\+\_\+\+HIDE = "{}\textbackslash{}033\+[?25l"{}}
+
+\Hypertarget{main_8cpp_a2fbf61b9ffb4dc03fad3d4df41271286}\index{main.cpp@{main.cpp}!CURSOR\_RESTORE@{CURSOR\_RESTORE}}
+\index{CURSOR\_RESTORE@{CURSOR\_RESTORE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CURSOR\_RESTORE}{CURSOR\_RESTORE}}
+{\footnotesize\ttfamily \label{main_8cpp_a2fbf61b9ffb4dc03fad3d4df41271286} 
+const std::\+string CURSOR\+\_\+\+RESTORE = "{}\textbackslash{}033\+[u"{}}
+
+\Hypertarget{main_8cpp_aa5ff3c97de2aec728b276c2748b6cf9c}\index{main.cpp@{main.cpp}!CURSOR\_SAVE@{CURSOR\_SAVE}}
+\index{CURSOR\_SAVE@{CURSOR\_SAVE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CURSOR\_SAVE}{CURSOR\_SAVE}}
+{\footnotesize\ttfamily \label{main_8cpp_aa5ff3c97de2aec728b276c2748b6cf9c} 
+const std::\+string CURSOR\+\_\+\+SAVE = "{}\textbackslash{}033\+[s"{}}
+
+\Hypertarget{main_8cpp_adf4a6dee4ed49c0f22dc351a12ba4ef6}\index{main.cpp@{main.cpp}!CURSOR\_SHOW@{CURSOR\_SHOW}}
+\index{CURSOR\_SHOW@{CURSOR\_SHOW}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{CURSOR\_SHOW}{CURSOR\_SHOW}}
+{\footnotesize\ttfamily \label{main_8cpp_adf4a6dee4ed49c0f22dc351a12ba4ef6} 
+const std::\+string CURSOR\+\_\+\+SHOW = "{}\textbackslash{}033\+[?25h"{}}
+
+\Hypertarget{main_8cpp_a5db0c7f5fe13f32709c84a8bd310b6eb}\index{main.cpp@{main.cpp}!HIGHLIGHT\_OFF@{HIGHLIGHT\_OFF}}
+\index{HIGHLIGHT\_OFF@{HIGHLIGHT\_OFF}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{HIGHLIGHT\_OFF}{HIGHLIGHT\_OFF}}
+{\footnotesize\ttfamily \label{main_8cpp_a5db0c7f5fe13f32709c84a8bd310b6eb} 
+const std::\+string HIGHLIGHT\+\_\+\+OFF = "{}\textbackslash{}033\+[0m"{}}
+
+\Hypertarget{main_8cpp_a3d43dd5f9b880ab0df99ae693945d73f}\index{main.cpp@{main.cpp}!HIGHLIGHT\_ON@{HIGHLIGHT\_ON}}
+\index{HIGHLIGHT\_ON@{HIGHLIGHT\_ON}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{HIGHLIGHT\_ON}{HIGHLIGHT\_ON}}
+{\footnotesize\ttfamily \label{main_8cpp_a3d43dd5f9b880ab0df99ae693945d73f} 
+const std::\+string HIGHLIGHT\+\_\+\+ON = "{}\textbackslash{}033\+[7m"{}}
+

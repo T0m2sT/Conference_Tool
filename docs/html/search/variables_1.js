@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['dest_0',['dest',['../classEdge.html#ae4d65678b91bd9d814af4720ad87cd0c',1,'Edge']]],
-  ['dist_1',['dist',['../classVertex.html#a08a2b813e77f97aa8b6c1d252e5417f7',1,'Vertex']]],
-  ['distmatrix_2',['distMatrix',['../classGraph.html#a4517f4351bc7f0348369b25b7c0b44fe',1,'Graph']]]
+  ['box_5fbottom_0',['BOX_BOTTOM',['../main_8cpp.html#a1962bebc8e67e070c70638d7c760edda',1,'main.cpp']]],
+  ['box_5finner_1',['BOX_INNER',['../main_8cpp.html#a08aebad26886833267510ac5a41ad709',1,'main.cpp']]],
+  ['box_5fmid_2',['BOX_MID',['../main_8cpp.html#af4db663334c0995381b27df92bff0805',1,'main.cpp']]],
+  ['box_5ftop_3',['BOX_TOP',['../main_8cpp.html#acc926d5efd9175f2804b9ccb9c091a91',1,'main.cpp']]]
 ];

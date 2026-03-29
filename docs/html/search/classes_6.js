@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertex_0',['Vertex',['../classVertex.html',1,'']]]
+  ['outputwriter_0',['OutputWriter',['../classOutputWriter.html',1,'']]]
 ];

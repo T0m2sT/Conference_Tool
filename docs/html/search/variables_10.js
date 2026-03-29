@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['weight_0',['weight',['../classEdge.html#af188b57b604f0d65e2da48733bd76426',1,'Edge']]]
+  ['secondarydomain_0',['secondaryDomain',['../structSubmission.html#a9bafaead1609a44c738d2e6d9e511e9e',1,'Submission']]],
+  ['secondaryexpertise_1',['secondaryExpertise',['../structReviewer.html#a19fc5d836237badc57737b4b8bbdcd10',1,'Reviewer']]],
+  ['secondaryreviewerexpertise_2',['secondaryReviewerExpertise',['../structParameters.html#a66edfe04b880cf7060f40eae3a1aa695',1,'Parameters']]],
+  ['secondarysubmissiondomain_3',['secondarySubmissionDomain',['../structParameters.html#ab0a361652545514ac10813459c929f1f',1,'Parameters']]],
+  ['selected_4',['selected',['../classEdge.html#a5242549271b59544ad1189fb532b5bbe',1,'Edge']]],
+  ['submissionid_5',['submissionId',['../structAssignment.html#a19c094cacc0df98064feef4ccd3553ee',1,'Assignment::submissionId'],['../structMissingReview.html#a515c8aa8be65577ea34e1473771e0c41',1,'MissingReview::submissionId']]]
 ];

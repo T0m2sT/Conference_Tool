@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['flow_0',['flow',['../classEdge.html#a30808601fa37f509147eabf9cc5f9ed6',1,'Edge']]]
+  ['dest_0',['dest',['../classEdge.html#ae4d65678b91bd9d814af4720ad87cd0c',1,'Edge']]],
+  ['dist_1',['dist',['../classVertex.html#a08a2b813e77f97aa8b6c1d252e5417f7',1,'Vertex']]],
+  ['distmatrix_2',['distMatrix',['../classGraph.html#a4517f4351bc7f0348369b25b7c0b44fe',1,'Graph']]],
+  ['domain_3',['domain',['../structMissingReview.html#acf4ad3668f8b0424fd8bdf6eab65084f',1,'MissingReview']]]
 ];

@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['edge_0',['Edge',['../classEdge.html',1,'Edge&lt; T &gt;'],['../classEdge.html#ab976213419283ed754f42f57b195a288',1,'Edge::Edge()']]],
-  ['email_1',['email',['../structSubmission.html#ab524f4484bf346c7ba0d94b0a7dd114c',1,'Submission::email'],['../structReviewer.html#a5ae05709e98e328427aed3ead8912fd8',1,'Reviewer::email']]]
+  ['deleteedge_0',['deleteEdge',['../classVertex.html#a622503fe44ef12d5c39bd1043d47865c',1,'Vertex']]],
+  ['deletematrix_1',['deleteMatrix',['../Graph_8h.html#ad56527992afe31a371065e795da57d25',1,'deleteMatrix(int **m, int n):&#160;Graph.h'],['../Graph_8h.html#af077bc8682a1a1d97e30b08eb1131b19',1,'deleteMatrix(double **m, int n):&#160;Graph.h']]],
+  ['dest_2',['dest',['../classEdge.html#ae4d65678b91bd9d814af4720ad87cd0c',1,'Edge']]],
+  ['displayinbox_3',['displayInBox',['../main_8cpp.html#a82e3a320eed037ac8878d4bde7b5717b',1,'main.cpp']]],
+  ['dist_4',['dist',['../classVertex.html#a08a2b813e77f97aa8b6c1d252e5417f7',1,'Vertex']]],
+  ['distmatrix_5',['distMatrix',['../classGraph.html#a4517f4351bc7f0348369b25b7c0b44fe',1,'Graph']]],
+  ['domain_6',['domain',['../structMissingReview.html#acf4ad3668f8b0424fd8bdf6eab65084f',1,'MissingReview']]]
 ];

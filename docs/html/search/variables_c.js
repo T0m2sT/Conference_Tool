@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reverse_0',['reverse',['../classEdge.html#a6c1e5191f85afbd20cf6198815c9b079',1,'Edge']]],
-  ['riskanalysis_1',['riskAnalysis',['../structControl.html#a51dcb4a3f5c2793db8229a3cb0e15ce9',1,'Control']]]
+  ['orig_0',['orig',['../classEdge.html#a4510c31e0479f9d25f6e35d086887192',1,'Edge']]],
+  ['outputfilename_1',['outputFileName',['../structControl.html#a231429ce3538fa9ff91d78a5f07a5008',1,'Control']]]
 ];

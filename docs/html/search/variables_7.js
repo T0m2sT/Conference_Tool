@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['maxreviewsperreviewer_0',['maxReviewsPerReviewer',['../structParameters.html#ae78183abd0f7689d650ab60b0194dd43',1,'Parameters']]],
-  ['minreviewspersubmission_1',['minReviewsPerSubmission',['../structParameters.html#a7a88a93ea0e7bb9aa1f2b44acff3776c',1,'Parameters']]]
+  ['highlight_5foff_0',['HIGHLIGHT_OFF',['../main_8cpp.html#a5db0c7f5fe13f32709c84a8bd310b6eb',1,'main.cpp']]],
+  ['highlight_5fon_1',['HIGHLIGHT_ON',['../main_8cpp.html#a3d43dd5f9b880ab0df99ae693945d73f',1,'main.cpp']]]
 ];

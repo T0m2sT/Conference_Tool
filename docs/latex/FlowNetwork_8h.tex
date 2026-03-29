@@ -1,0 +1,18 @@
+\doxysection{/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\+Flow\+Network.h File Reference}
+\hypertarget{FlowNetwork_8h}{}\label{FlowNetwork_8h}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/FlowNetwork.h@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/FlowNetwork.h}}
+{\ttfamily \+\#include "{}Graph.\+h"{}}\newline
+{\ttfamily \+\#include "{}models/\+\+Conference\+Data.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$unordered\+\_\+map$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structAssignment}{Assignment}}
+\begin{DoxyCompactList}\small\item\em Represents a single review assignment:\+ submission -\/\texorpdfstring{$>$}{>} reviewer with a matched domain. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structMissingReview}{Missing\+Review}}
+\begin{DoxyCompactList}\small\item\em Represents a submission that couldn\textquotesingle{}t get enough reviews. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}}
+\begin{DoxyCompactList}\small\item\em Result of running the assignment algorithm. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{classFlowNetwork}{Flow\+Network}}
+\begin{DoxyCompactList}\small\item\em Builds a Max-\/\+Flow network from conference data and solves the review assignment problem. \end{DoxyCompactList}\end{DoxyCompactItemize}
