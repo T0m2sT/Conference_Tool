@@ -6,24 +6,50 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
-#include <map>
 
 /**
- * @brief Writes assignment results and risk analysis to an output CSV file.
+ * @brief Utility class responsible for writing output files.
  */
 class OutputWriter {
 public:
     /**
-     * @brief Write the full output file.
-     * @param filename       Output file path
-     * @param result         Assignment results
-     * @param riskAnalysis   Risk analysis K value (0 = no risk section)
-     * @param atRiskReviewers Sorted list of at-risk reviewer IDs
+     * @brief Writes the complete output file.
+     * @param filename Path to output file.
+     * @param result Assignment result data.
+     * @param riskAnalysis Risk analysis mode (0 = none).
+     * @param atRiskReviewers Sorted list of at-risk reviewer IDs.
      */
     static void write(const std::string &filename,
                       const AssignmentResult &result,
                       int riskAnalysis,
                       const std::vector<int> &atRiskReviewers);
+
+private:
+    /**
+     * @brief Writes assignment results (both perspectives).
+     * @param file Output file stream.
+     * @param result Assignment result data.
+     */
+    static void writeAssignments(std::ofstream &file,
+                                 const AssignmentResult &result);
+
+    /**
+     * @brief Writes missing reviews section.
+     * @param file Output file stream.
+     * @param result Assignment result data.
+     */
+    static void writeMissingReviews(std::ofstream &file,
+                                   const AssignmentResult &result);
+
+    /**
+     * @brief Writes risk analysis section.
+     * @param file Output file stream.
+     * @param riskAnalysis Risk analysis mode.
+     * @param atRiskReviewers Sorted list of at-risk reviewer IDs.
+     */
+    static void writeRiskAnalysis(std::ofstream &file,
+                                 int riskAnalysis,
+                                 const std::vector<int> &atRiskReviewers);
 };
 
 #endif
