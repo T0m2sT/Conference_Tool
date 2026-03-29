@@ -145,6 +145,13 @@ AssignmentResult FlowNetwork::buildAndSolve(
         }
     }
 
+    // --- Initialize all edge flows to 0 ---
+    for (auto v : graph.getVertexSet()) {
+        for (auto e : v->getAdj()) {
+            e->setFlow(0);
+        }
+    }
+
     // --- Run Edmonds-Karp ---
     int totalRequired = (int)submissions.size() * params.minReviewsPerSubmission;
     int maxFlow = edmondsKarp(graph, "source", "sink");
