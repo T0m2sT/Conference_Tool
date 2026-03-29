@@ -31,7 +31,10 @@ private:
     static const std::string BOX_MID;
     static const std::string BOX_BOTTOM;
 
+    static void getTerminalSize(int &rows, int &cols);
+    static std::string hPad(int cols);
     static std::string cursorToRow(int row);
+    static std::string cursorToPos(int row, int col);
     static std::string boxLine(const std::string &text);
     static std::string boxLineArrow(const std::string &text);
     static std::string menuLine(const std::string &text, bool highlighted);
