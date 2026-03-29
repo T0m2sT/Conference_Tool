@@ -7,6 +7,7 @@ include_directories(include)
 
 add_executable(da_tool
     src/main.cpp
+    src/Menu.cpp
     src/CSVParser.cpp
     src/FlowNetwork.cpp
     src/OutputWriter.cpp
