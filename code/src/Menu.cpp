@@ -60,6 +60,7 @@ void Menu::displayInBox(const std::string &subtitle, const std::vector<std::stri
     std::cout << boxLine("") << "\n";
     std::cout << boxLine("  Press Enter to go back...") << "\n";
     std::cout << BOX_BOTTOM << std::endl;
+    std::cout << CURSOR_HIDE << std::flush;
 
     struct termios oldt, newt;
     tcgetattr(STDIN_FILENO, &oldt);
@@ -70,6 +71,7 @@ void Menu::displayInBox(const std::string &subtitle, const std::vector<std::stri
     tcflush(STDIN_FILENO, TCIFLUSH);
 
     while (getchar() != '\n') {}
+    std::cout << CURSOR_SHOW << std::flush;
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 }
 

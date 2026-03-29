@@ -22,7 +22,7 @@ std::vector<std::string> runAssignment(const std::vector<Submission> &submission
                                        const Parameters &params,
                                        const Control &control) {
     if (submissions.empty() || reviewers.empty()) {
-        return {"Please load an input file first."};
+        return {"No data loaded."};
     }
 
     FlowNetwork flowNet;
@@ -97,6 +97,7 @@ int main(int argc, char *argv[]) {
     Control control;
     CSVParser parser;
     bool loaded = false;
+    std::string loadedFile;
     std::vector<std::string> menuOptions = {
         "Load input file",
         "Show submissions",
@@ -122,6 +123,7 @@ int main(int argc, char *argv[]) {
                 std::vector<std::string> lines;
                 if (parser.parseFile(filename, submissions, reviewers, params, control)) {
                     loaded = true;
+                    loadedFile = filename;
                     lines.push_back("Loaded " + std::to_string(submissions.size()) + " submissions");
                     lines.push_back("Loaded " + std::to_string(reviewers.size()) + " reviewers");
                 } else {
@@ -137,9 +139,15 @@ int main(int argc, char *argv[]) {
             case 2:
                 menu.displayInBox("Reviewers", DisplayFormatter::formatReviewers(reviewers));
                 break;
-            case 3:
-                menu.displayInBox("Parameters & Control", DisplayFormatter::formatSettings(params, control));
+            case 3: {
+                auto settingsLines = DisplayFormatter::formatSettings(params, control);
+                if (!loaded)
+                    settingsLines.insert(settingsLines.begin(), "No file loaded. Showing default values.");
+                else
+                    settingsLines.insert(settingsLines.begin(), "Loaded from: " + loadedFile);
+                menu.displayInBox("Parameters & Control", settingsLines);
                 break;
+            }
             case 4:
                 menu.displayInBox("Assignment Result", runAssignment(submissions, reviewers, params, control));
                 break;

@@ -28,6 +28,7 @@ std::vector<std::string> DisplayFormatter::formatReviewers(const std::vector<Rev
 
 std::vector<std::string> DisplayFormatter::formatSettings(const Parameters &params, const Control &control) {
     std::vector<std::string> lines;
+    lines.push_back("");
     lines.push_back("--- Parameters ---");
     lines.push_back("MinReviews/Sub: " + std::to_string(params.minReviewsPerSubmission));
     lines.push_back("MaxReviews/Rev: " + std::to_string(params.maxReviewsPerReviewer));
