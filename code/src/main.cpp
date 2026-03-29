@@ -11,12 +11,6 @@
 #include "DisplayFormatter.h"
 #include "Menu.h"
 
-/**
- * @brief Runs the assignment algorithm and returns formatted display lines.
- *
- * Bridges the algorithm (FlowNetwork) and the UI (Menu) without either
- * knowing about the other. Also writes the output file as a side effect.
- */
 std::vector<std::string> runAssignment(const std::vector<Submission> &submissions,
                                        const std::vector<Reviewer> &reviewers,
                                        const Parameters &params,
@@ -32,7 +26,7 @@ std::vector<std::string> runAssignment(const std::vector<Submission> &submission
     AssignmentResult result = flowNet.buildAndSolve(submissions, reviewers, params, mode);
 
     std::vector<int> atRisk;
-    if (control.riskAnalysis >= 1) {
+    if (control.riskAnalysis == 1) {
         atRisk = flowNet.riskAnalysisK1(submissions, reviewers, params, mode);
     }
 
