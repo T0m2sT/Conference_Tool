@@ -145,9 +145,22 @@ AssignmentResult FlowNetwork::buildAndSolve(
         }
     }
 
+    // --- Initialize all edge flows to 0 ---
+    for (auto v : graph.getVertexSet()) {
+        for (auto e : v->getAdj()) {
+            e->setFlow(0);
+        }
+    }
+
     // --- Run Edmonds-Karp ---
     int totalRequired = (int)submissions.size() * params.minReviewsPerSubmission;
     int maxFlow = edmondsKarp(graph, "source", "sink");
+
+    // This is theoretically redundant with the per-submission check below,
+    // but kept for clarity and correctness validation
+    if (maxFlow < totalRequired) {
+        result.fullySatisfied = false;
+    }
 
     // --- Extract assignments from flow ---
     for (const auto &sub : submissions) {
