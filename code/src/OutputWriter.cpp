@@ -1,8 +1,6 @@
 #include "OutputWriter.h"
 
-/**
- * @brief Writes the complete output file.
- */
+
 void OutputWriter::write(const std::string &filename,
                          const AssignmentResult &result,
                          int riskAnalysis,
@@ -18,9 +16,7 @@ void OutputWriter::write(const std::string &filename,
     file.close();
 }
 
-/**
- * @brief Writes assignment sections (submission view and reviewer view).
- */
+
 void OutputWriter::writeAssignments(std::ofstream &file,
                                     const AssignmentResult &result)
 {
@@ -53,9 +49,7 @@ void OutputWriter::writeAssignments(std::ofstream &file,
     file << "#Total: " << result.totalAssignments << "\n";
 }
 
-/**
- * @brief Writes missing reviews section if needed.
- */
+
 void OutputWriter::writeMissingReviews(std::ofstream &file,
                                        const AssignmentResult &result)
 {
@@ -69,9 +63,7 @@ void OutputWriter::writeMissingReviews(std::ofstream &file,
     }
 }
 
-/**
- * @brief Writes risk analysis section if enabled.
- */
+
 void OutputWriter::writeRiskAnalysis(std::ofstream &file,
                                      int riskAnalysis,
                                      const std::vector<int> &atRiskReviewers)
