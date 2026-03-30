@@ -1,6 +1,8 @@
 #Folders to Ignore
 code/cmake-build/
+code/cmake-build-debug/
 assignments/
+.vscode/
 
 #Files to Ignore
 .DS_Store

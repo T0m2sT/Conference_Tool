@@ -9,6 +9,8 @@
 const std::string Menu::CLEAR_SCREEN    = "\033[2J\033[H";
 const std::string Menu::HIGHLIGHT_ON    = "\033[7m";
 const std::string Menu::HIGHLIGHT_OFF   = "\033[0m";
+const std::string Menu::COLOR_RED       = "\033[31m";
+const std::string Menu::COLOR_RESET     = "\033[0m";
 const std::string Menu::CURSOR_HIDE     = "\033[?25l";
 const std::string Menu::CURSOR_SHOW     = "\033[?25h";
 const std::string Menu::CURSOR_SAVE     = "\033[s";
@@ -88,7 +90,15 @@ void Menu::displayInBox(const std::string &subtitle, const std::vector<std::stri
     std::cout << pad << boxLine("  " + subtitle) << "\n";
     std::cout << pad << boxLine("") << "\n";
     for (const auto &line : lines) {
-        std::cout << pad << boxLine("  " + line) << "\n";
+        if (line.size() >= 2 && line[0] == '!' && line[1] == '!') {
+            std::string content = line.substr(2);
+            std::string padded = "  " + content;
+            if ((int)padded.size() > BOX_INNER) padded = padded.substr(0, BOX_INNER);
+            while ((int)padded.size() < BOX_INNER) padded += " ";
+            std::cout << pad << "║ " << COLOR_RED << padded << COLOR_RESET << " ║\n";
+        } else {
+            std::cout << pad << boxLine("  " + line) << "\n";
+        }
     }
     std::cout << pad << boxLine("") << "\n";
     std::cout << pad << boxLine("  Press Enter to go back...") << "\n";
@@ -149,9 +159,9 @@ int Menu::arrowMenu(const std::vector<std::string> &options) {
     getTerminalSize(termRows, termCols);
     std::string pad = hPad(termCols);
 
-    // Box height: top + empty + title + empty + mid + empty + options + empty + footer + bottom = 8 + options.size()
+    // Box height: top + empty + title + empty + mid + empty + options + empty + footer + bottom
     int boxHeight = 9 + (int)options.size();
-    int topMargin = (termRows - boxHeight) / 2;
+    int topMargin = std::max(0, (termRows - boxHeight) / 2);
 
     int selected = 0;
     struct termios oldt, newt;
@@ -177,7 +187,9 @@ int Menu::arrowMenu(const std::vector<std::string> &options) {
     std::cout << pad << boxLine("") << "\n";
     std::cout << pad << boxLineArrow("  \u2191/\u2193 arrows, Enter to select") << "\n";
     std::cout << pad << BOX_BOTTOM << "\n";
-    for (int i = 0; i < topMargin; i++) std::cout << "\n";
+    // Use absolute positioning to place cursor at bottom without scrolling
+    int bottomRow = std::min(termRows, topMargin + boxHeight + topMargin);
+    std::cout << cursorToPos(bottomRow, 1);
     std::cout << CURSOR_HIDE << std::flush;
 
     while (true) {
@@ -187,10 +199,11 @@ int Menu::arrowMenu(const std::vector<std::string> &options) {
             getchar();
             char arrow = getchar();
             int oldSelected = selected;
-            if (arrow == 'A' && selected > 0) selected--;
-            else if (arrow == 'A') selected = (int)options.size()-1;
-            if (arrow == 'B' && selected < (int)options.size() - 1) selected++;
-            else if (arrow == 'B') selected = 0;
+            if (arrow == 'A') {
+                selected = (selected > 0) ? selected - 1 : (int)options.size() - 1;
+            } else if (arrow == 'B') {
+                selected = (selected < (int)options.size() - 1) ? selected + 1 : 0;
+            }
 
             if (oldSelected != selected) {
                 std::cout << cursorToRow(firstOptionRow + oldSelected);

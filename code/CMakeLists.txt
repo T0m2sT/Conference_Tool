@@ -9,7 +9,10 @@ add_executable(da_tool
     src/main.cpp
     src/Menu.cpp
     src/CSVParser.cpp
+    src/InputValidator.cpp
     src/FlowNetwork.cpp
     src/OutputWriter.cpp
     src/DisplayFormatter.cpp
+    src/ErrorReporting.cpp
+    src/BatchProcessor.cpp
 )

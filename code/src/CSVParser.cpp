@@ -35,25 +35,25 @@ void CSVParser::parseLine(const std::vector<std::string> &tokens, Section sectio
                           Parameters &params, Control &control) {
     switch (section) {
         case SUBMISSIONS:
-            if (tokens.size() >= 5) {
+            if (tokens.size() >= 1) {
                 Submission s;
-                s.id = std::stoi(tokens[0]);
-                s.title = tokens[1];
-                s.authors = tokens[2];
-                s.email = tokens[3];
-                s.primaryDomain = std::stoi(tokens[4]);
+                s.id = tokens.size() > 0 ? std::stoi(tokens[0]) : 0;
+                s.title = tokens.size() > 1 ? tokens[1] : "";
+                s.authors = tokens.size() > 2 ? tokens[2] : "";
+                s.email = tokens.size() > 3 ? tokens[3] : "";
+                s.primaryDomain = tokens.size() > 4 ? std::stoi(tokens[4]) : 0;
                 s.secondaryDomain = (tokens.size() > 5 && !tokens[5].empty()) ? std::stoi(tokens[5]) : -1;
                 submissions.push_back(s);
             }
             break;
 
         case REVIEWERS:
-            if (tokens.size() >= 4) {
+            if (tokens.size() >= 1) {
                 Reviewer r;
-                r.id = std::stoi(tokens[0]);
-                r.name = tokens[1];
-                r.email = tokens[2];
-                r.primaryExpertise = std::stoi(tokens[3]);
+                r.id = tokens.size() > 0 ? std::stoi(tokens[0]) : 0;
+                r.name = tokens.size() > 1 ? tokens[1] : "";
+                r.email = tokens.size() > 2 ? tokens[2] : "";
+                r.primaryExpertise = tokens.size() > 3 ? std::stoi(tokens[3]) : 0;
                 r.secondaryExpertise = (tokens.size() > 4 && !tokens[4].empty()) ? std::stoi(tokens[4]) : -1;
                 reviewers.push_back(r);
             }
