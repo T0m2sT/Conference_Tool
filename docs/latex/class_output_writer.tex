@@ -1,0 +1,55 @@
+\doxysection{Output\+Writer Class Reference}
+\hypertarget{class_output_writer}{}\label{class_output_writer}\index{OutputWriter@{OutputWriter}}
+
+
+Utility class responsible for writing output files.  
+
+
+
+
+{\ttfamily \+\#include $<$Output\+Writer.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_output_writer_a6675dc8236e806d81faf9dd8034e220f}{write}} (const std::\+string \&filename, const \doxymbox{\hyperlink{struct_assignment_result}{Assignment\+Result}} \&result, int risk\+Analysis, const std::\+vector$<$ int $>$ \&at\+Risk\+Reviewers)
+\begin{DoxyCompactList}\small\item\em Writes the complete output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class responsible for writing output files. 
+
+\label{doc-func-members}
+\Hypertarget{class_output_writer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_output_writer_a6675dc8236e806d81faf9dd8034e220f}\index{OutputWriter@{OutputWriter}!write@{write}}
+\index{write@{write}!OutputWriter@{OutputWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{class_output_writer_a6675dc8236e806d81faf9dd8034e220f} 
+void Output\+Writer::\+write (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filename}{, }\item[{const \doxymbox{\hyperlink{struct_assignment_result}{Assignment\+Result}} \&}]{result}{, }\item[{int}]{risk\+Analysis}{, }\item[{const std::\+vector$<$ int $>$ \&}]{at\+Risk\+Reviewers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Writes the complete output file. 
+
+Delegates to write\+Assignments, write\+Missing\+Reviews, and write\+Risk\+Analysis.
+
+{\bfseries{Time Complexity:\+}} O(\+A log A) where A = number of assignments (dominated by the reviewer-\/perspective sort).
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to output file. \\
+\hline
+{\em result} & \doxylink{struct_assignment}{Assignment} result data. \\
+\hline
+{\em risk\+Analysis} & Risk analysis mode (0 = none). \\
+\hline
+{\em at\+Risk\+Reviewers} & Sorted list of at-\/risk reviewer IDs. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{_output_writer_8h}{Output\+Writer.\+h}}\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{_output_writer_8cpp}{Output\+Writer.\+cpp}}\end{DoxyCompactItemize}

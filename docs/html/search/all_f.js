@@ -1,13 +1,21 @@
 var searchData=
 [
-  ['removeedge_0',['removeEdge',['../classVertex.html#ac1f1dd0a8e1019a242f1120d6559c754',1,'Vertex::removeEdge()'],['../classGraph.html#a8949d071d45bf93e171e275462e1007a',1,'Graph::removeEdge()']]],
-  ['removeoutgoingedges_1',['removeOutgoingEdges',['../classVertex.html#a414ce58fdf35ee5200a82912f3865506',1,'Vertex']]],
-  ['removevertex_2',['removeVertex',['../classGraph.html#af9c903104ad69a7782979fa9caedf163',1,'Graph']]],
-  ['reverse_3',['reverse',['../classEdge.html#a6c1e5191f85afbd20cf6198815c9b079',1,'Edge']]],
-  ['reviewer_4',['Reviewer',['../structReviewer.html',1,'Reviewer'],['../structReviewer.html#ac9966f427a3bb05458db91e205df7291',1,'Reviewer::Reviewer()']]],
-  ['reviewerid_5',['reviewerId',['../structAssignment.html#a85fdbff1a85677bedfd965fbfa6e9925',1,'Assignment']]],
-  ['riskanalysis_6',['riskAnalysis',['../structControl.html#a51dcb4a3f5c2793db8229a3cb0e15ce9',1,'Control']]],
-  ['riskanalysisk1_7',['riskAnalysisK1',['../classFlowNetwork.html#aabc9eb47cdc3311795ec82a4b4bf9a2a',1,'FlowNetwork']]],
-  ['runassignment_8',['runAssignment',['../main_8cpp.html#a45773102d5e0238d22ca03ece6f5d80c',1,'main.cpp']]],
-  ['runbatchmode_9',['runBatchMode',['../main_8cpp.html#af69b9c19ba7801236d32d342034b77d6',1,'main.cpp']]]
+  ['secondarydomain_0',['secondaryDomain',['../struct_submission.html#a9bafaead1609a44c738d2e6d9e511e9e',1,'Submission']]],
+  ['secondaryexpertise_1',['secondaryExpertise',['../struct_reviewer.html#a19fc5d836237badc57737b4b8bbdcd10',1,'Reviewer']]],
+  ['secondaryreviewerexpertise_2',['secondaryReviewerExpertise',['../struct_parameters.html#a66edfe04b880cf7060f40eae3a1aa695',1,'Parameters']]],
+  ['secondarysubmissiondomain_3',['secondarySubmissionDomain',['../struct_parameters.html#ab0a361652545514ac10813459c929f1f',1,'Parameters']]],
+  ['selected_4',['selected',['../class_edge.html#a5242549271b59544ad1189fb532b5bbe',1,'Edge']]],
+  ['setdist_5',['setDist',['../class_vertex.html#a060fbea0c3738cc3e09d84ad8c431b34',1,'Vertex']]],
+  ['setflow_6',['setFlow',['../class_edge.html#a1819116e2c156733a14bbd94cc27908e',1,'Edge']]],
+  ['setindegree_7',['setIndegree',['../class_vertex.html#af9c4caaac19bdaae5a88a7a671639b59',1,'Vertex']]],
+  ['setinfo_8',['setInfo',['../class_vertex.html#a31cd60c26640f8072a928ba70eb2f95e',1,'Vertex']]],
+  ['setlow_9',['setLow',['../class_vertex.html#a62acec2c4fcbec56e995974b91444ec9',1,'Vertex']]],
+  ['setnum_10',['setNum',['../class_vertex.html#ab3f9026ba6cbd11243ab484a856c6581',1,'Vertex']]],
+  ['setpath_11',['setPath',['../class_vertex.html#a5ebf4b550ec94b89a8f80df1a53cc97d',1,'Vertex']]],
+  ['setprocessing_12',['setProcessing',['../class_vertex.html#a5ccb6f7215c915afdbcbdb81ad70a408',1,'Vertex']]],
+  ['setreverse_13',['setReverse',['../class_edge.html#afe8f8429025756c63f38e8c6fde7382c',1,'Edge']]],
+  ['setselected_14',['setSelected',['../class_edge.html#a87c8402c5edd6729a2c934e2a0cce6fe',1,'Edge']]],
+  ['setvisited_15',['setVisited',['../class_vertex.html#a95a3f3c55f2ba371fae51d3fe0e76c23',1,'Vertex']]],
+  ['submission_16',['Submission',['../struct_submission.html',1,'Submission'],['../struct_submission.html#adc357e6d7b44178d1f52017615751138',1,'Submission::Submission()']]],
+  ['submissionid_17',['submissionId',['../struct_assignment.html#a19c094cacc0df98064feef4ccd3553ee',1,'Assignment::submissionId'],['../struct_missing_review.html#a515c8aa8be65577ea34e1473771e0c41',1,'MissingReview::submissionId']]]
 ];

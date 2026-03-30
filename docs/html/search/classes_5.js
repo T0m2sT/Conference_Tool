@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['missingreview_0',['MissingReview',['../structMissingReview.html',1,'']]],
-  ['mutablepriorityqueue_1',['MutablePriorityQueue',['../classMutablePriorityQueue.html',1,'']]]
+  ['graph_0',['Graph',['../class_graph.html',1,'']]]
 ];

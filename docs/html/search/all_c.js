@@ -1,9 +1,13 @@
 var searchData=
 [
-  ['operator_3c_0',['operator&lt;',['../classVertex.html#a5a6670b842354232bac4dad2f551d66e',1,'Vertex']]],
-  ['orig_1',['orig',['../classEdge.html#a4510c31e0479f9d25f6e35d086887192',1,'Edge']]],
-  ['outputfilename_2',['outputFileName',['../structControl.html#a231429ce3538fa9ff91d78a5f07a5008',1,'Control']]],
-  ['outputwriter_3',['OutputWriter',['../classOutputWriter.html',1,'']]],
-  ['outputwriter_2ecpp_4',['OutputWriter.cpp',['../OutputWriter_8cpp.html',1,'']]],
-  ['outputwriter_2eh_5',['OutputWriter.h',['../OutputWriter_8h.html',1,'']]]
+  ['parameters_0',['Parameters',['../struct_parameters.html',1,'Parameters'],['../struct_parameters.html#af4d94ee360ac0157d9065f78797fe9a1',1,'Parameters::Parameters()']]],
+  ['parsefile_1',['parseFile',['../class_c_s_v_parser.html#ae5d043420e6e96684721914a157b38a3',1,'CSVParser']]],
+  ['path_2',['path',['../class_vertex.html#abfc6d8f64308c47901c72d5ebceda80e',1,'Vertex']]],
+  ['pathmatrix_3',['pathMatrix',['../class_graph.html#afb9524726f8f3cda3115a0d03e3f6e09',1,'Graph']]],
+  ['primarydomain_4',['primaryDomain',['../struct_submission.html#aa983dd3d98f1ac3ee5a713d01ca875ed',1,'Submission']]],
+  ['primaryexpertise_5',['primaryExpertise',['../struct_reviewer.html#a1a6ba130656856000843bbc57e811486',1,'Reviewer']]],
+  ['primaryreviewerexpertise_6',['primaryReviewerExpertise',['../struct_parameters.html#a93181dc57462e044aaac72d544c2c0ed',1,'Parameters']]],
+  ['primarysubmissiondomain_7',['primarySubmissionDomain',['../struct_parameters.html#a22fdf73cc9aa31f94e2edb0738b91ce4',1,'Parameters']]],
+  ['processing_8',['processing',['../class_vertex.html#ae575d4b9a6b1ada3f9626c458c060f54',1,'Vertex']]],
+  ['promptinbox_9',['promptInBox',['../class_menu.html#a1d3323ef2925e5c10ea166bc839820b7',1,'Menu']]]
 ];

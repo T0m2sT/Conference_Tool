@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['control_0',['Control',['../structControl.html',1,'']]],
-  ['csvparser_1',['CSVParser',['../classCSVParser.html',1,'']]]
+  ['control_0',['Control',['../struct_control.html',1,'']]],
+  ['csvparser_1',['CSVParser',['../class_c_s_v_parser.html',1,'']]]
 ];

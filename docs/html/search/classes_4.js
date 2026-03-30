@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['graph_0',['Graph',['../classGraph.html',1,'']]]
+  ['flownetwork_0',['FlowNetwork',['../class_flow_network.html',1,'']]]
 ];

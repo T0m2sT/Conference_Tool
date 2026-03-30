@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['clear_5fscreen_0',['CLEAR_SCREEN',['../main_8cpp.html#a0a65e357033035a379a603af34d97168',1,'main.cpp']]],
-  ['cursor_5fhide_1',['CURSOR_HIDE',['../main_8cpp.html#a60b2c0b9da30b0df7cb5f5abe10b0db0',1,'main.cpp']]],
-  ['cursor_5frestore_2',['CURSOR_RESTORE',['../main_8cpp.html#a2fbf61b9ffb4dc03fad3d4df41271286',1,'main.cpp']]],
-  ['cursor_5fsave_3',['CURSOR_SAVE',['../main_8cpp.html#aa5ff3c97de2aec728b276c2748b6cf9c',1,'main.cpp']]],
-  ['cursor_5fshow_4',['CURSOR_SHOW',['../main_8cpp.html#adf4a6dee4ed49c0f22dc351a12ba4ef6',1,'main.cpp']]]
+  ['dest_0',['dest',['../class_edge.html#ae4d65678b91bd9d814af4720ad87cd0c',1,'Edge']]],
+  ['dist_1',['dist',['../class_vertex.html#a08a2b813e77f97aa8b6c1d252e5417f7',1,'Vertex']]],
+  ['distmatrix_2',['distMatrix',['../class_graph.html#a4517f4351bc7f0348369b25b7c0b44fe',1,'Graph']]],
+  ['domain_3',['domain',['../struct_missing_review.html#acf4ad3668f8b0424fd8bdf6eab65084f',1,'MissingReview']]]
 ];

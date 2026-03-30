@@ -1,0 +1,62 @@
+\doxysection{Display\+Formatter Class Reference}
+\hypertarget{class_display_formatter}{}\label{class_display_formatter}\index{DisplayFormatter@{DisplayFormatter}}
+
+
+Converts domain data into display-\/ready string lines.  
+
+
+
+
+{\ttfamily \+\#include $<$Display\+Formatter.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_display_formatter_a43f8eca53767d50f7199f03ad6a74407}{format\+Submissions}} (const std::\+vector$<$ \doxymbox{\hyperlink{struct_submission}{Submission}} $>$ \&submissions)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_display_formatter_ac1816fab9c7ad3b725e5620c9f6facb3}{format\+Reviewers}} (const std::\+vector$<$ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}} $>$ \&reviewers)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_display_formatter_ac79074f4f81253b24703e2ca90126c2f}{format\+Settings}} (const \doxymbox{\hyperlink{struct_parameters}{Parameters}} \&params, const \doxymbox{\hyperlink{struct_control}{Control}} \&control)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{class_display_formatter_ac823f44e21e76cde27afa5c267f13945}{format\+Assignment\+Result}} (const \doxymbox{\hyperlink{struct_assignment_result}{Assignment\+Result}} \&result, const \doxymbox{\hyperlink{struct_control}{Control}} \&control, const std::\+vector$<$ int $>$ \&at\+Risk\+Reviewers)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Converts domain data into display-\/ready string lines. 
+
+Responsible for formatting submissions, reviewers, parameters, and assignment results into vectors of strings that the \doxylink{class_menu}{Menu} can render. 
+
+\label{doc-func-members}
+\Hypertarget{class_display_formatter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_display_formatter_ac823f44e21e76cde27afa5c267f13945}\index{DisplayFormatter@{DisplayFormatter}!formatAssignmentResult@{formatAssignmentResult}}
+\index{formatAssignmentResult@{formatAssignmentResult}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatAssignmentResult()}{formatAssignmentResult()}}
+{\footnotesize\ttfamily \label{class_display_formatter_ac823f44e21e76cde27afa5c267f13945} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Assignment\+Result (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_assignment_result}{Assignment\+Result}} \&}]{result}{, }\item[{const \doxymbox{\hyperlink{struct_control}{Control}} \&}]{control}{, }\item[{const std::\+vector$<$ int $>$ \&}]{at\+Risk\+Reviewers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_display_formatter_ac1816fab9c7ad3b725e5620c9f6facb3}\index{DisplayFormatter@{DisplayFormatter}!formatReviewers@{formatReviewers}}
+\index{formatReviewers@{formatReviewers}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatReviewers()}{formatReviewers()}}
+{\footnotesize\ttfamily \label{class_display_formatter_ac1816fab9c7ad3b725e5620c9f6facb3} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Reviewers (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}} $>$ \&}]{reviewers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_display_formatter_ac79074f4f81253b24703e2ca90126c2f}\index{DisplayFormatter@{DisplayFormatter}!formatSettings@{formatSettings}}
+\index{formatSettings@{formatSettings}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatSettings()}{formatSettings()}}
+{\footnotesize\ttfamily \label{class_display_formatter_ac79074f4f81253b24703e2ca90126c2f} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Settings (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_parameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{struct_control}{Control}} \&}]{control}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_display_formatter_a43f8eca53767d50f7199f03ad6a74407}\index{DisplayFormatter@{DisplayFormatter}!formatSubmissions@{formatSubmissions}}
+\index{formatSubmissions@{formatSubmissions}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatSubmissions()}{formatSubmissions()}}
+{\footnotesize\ttfamily \label{class_display_formatter_a43f8eca53767d50f7199f03ad6a74407} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Submissions (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{struct_submission}{Submission}} $>$ \&}]{submissions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{_display_formatter_8h}{Display\+Formatter.\+h}}\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{_display_formatter_8cpp}{Display\+Formatter.\+cpp}}\end{DoxyCompactItemize}

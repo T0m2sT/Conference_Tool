@@ -1,0 +1,95 @@
+\doxysection{Parameters Struct Reference}
+\hypertarget{struct_parameters}{}\label{struct_parameters}\index{Parameters@{Parameters}}
+
+
+\doxylink{struct_parameters}{Parameters} controlling the review assignment problem.  
+
+
+
+
+{\ttfamily \+\#include $<$Conference\+Data.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_parameters_af4d94ee360ac0157d9065f78797fe9a1}{Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{struct_parameters}{Parameters}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{struct_parameters_a7a88a93ea0e7bb9aa1f2b44acff3776c}{min\+Reviews\+Per\+Submission}}
+\item 
+int \doxymbox{\hyperlink{struct_parameters_ae78183abd0f7689d650ab60b0194dd43}{max\+Reviews\+Per\+Reviewer}}
+\item 
+int \doxymbox{\hyperlink{struct_parameters_a93181dc57462e044aaac72d544c2c0ed}{primary\+Reviewer\+Expertise}}
+\item 
+int \doxymbox{\hyperlink{struct_parameters_a66edfe04b880cf7060f40eae3a1aa695}{secondary\+Reviewer\+Expertise}}
+\item 
+int \doxymbox{\hyperlink{struct_parameters_a22fdf73cc9aa31f94e2edb0738b91ce4}{primary\+Submission\+Domain}}
+\item 
+int \doxymbox{\hyperlink{struct_parameters_ab0a361652545514ac10813459c929f1f}{secondary\+Submission\+Domain}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_parameters}{Parameters} controlling the review assignment problem. 
+
+\label{doc-constructors}
+\Hypertarget{struct_parameters_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_parameters_af4d94ee360ac0157d9065f78797fe9a1}\index{Parameters@{Parameters}!Parameters@{Parameters}}
+\index{Parameters@{Parameters}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{Parameters()}{Parameters()}}
+{\footnotesize\ttfamily \label{struct_parameters_af4d94ee360ac0157d9065f78797fe9a1} 
+Parameters::\+\+Parameters (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor for \doxylink{struct_parameters}{Parameters}. 
+
+Initializes default values for the review assignment problem:\+ min\+Reviews\+Per\+Submission = 0, max\+Reviews\+Per\+Reviewer = 0, primary\+Reviewer\+Expertise = 1, secondary\+Reviewer\+Expertise = 0, primary\+Submission\+Domain = 1, secondary\+Submission\+Domain = 0 
+
+\label{doc-variable-members}
+\Hypertarget{struct_parameters_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_parameters_ae78183abd0f7689d650ab60b0194dd43}\index{Parameters@{Parameters}!maxReviewsPerReviewer@{maxReviewsPerReviewer}}
+\index{maxReviewsPerReviewer@{maxReviewsPerReviewer}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{maxReviewsPerReviewer}{maxReviewsPerReviewer}}
+{\footnotesize\ttfamily \label{struct_parameters_ae78183abd0f7689d650ab60b0194dd43} 
+int Parameters::\+max\+Reviews\+Per\+Reviewer}
+
+Maximum number of reviews a reviewer can perform \Hypertarget{struct_parameters_a7a88a93ea0e7bb9aa1f2b44acff3776c}\index{Parameters@{Parameters}!minReviewsPerSubmission@{minReviewsPerSubmission}}
+\index{minReviewsPerSubmission@{minReviewsPerSubmission}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{minReviewsPerSubmission}{minReviewsPerSubmission}}
+{\footnotesize\ttfamily \label{struct_parameters_a7a88a93ea0e7bb9aa1f2b44acff3776c} 
+int Parameters::\+min\+Reviews\+Per\+Submission}
+
+Minimum number of reviews each paper must receive \Hypertarget{struct_parameters_a93181dc57462e044aaac72d544c2c0ed}\index{Parameters@{Parameters}!primaryReviewerExpertise@{primaryReviewerExpertise}}
+\index{primaryReviewerExpertise@{primaryReviewerExpertise}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{primaryReviewerExpertise}{primaryReviewerExpertise}}
+{\footnotesize\ttfamily \label{struct_parameters_a93181dc57462e044aaac72d544c2c0ed} 
+int Parameters::\+primary\+Reviewer\+Expertise}
+
+\doxylink{struct_control}{Control}:\+ consider primary reviewer expertise (usually 1) \Hypertarget{struct_parameters_a22fdf73cc9aa31f94e2edb0738b91ce4}\index{Parameters@{Parameters}!primarySubmissionDomain@{primarySubmissionDomain}}
+\index{primarySubmissionDomain@{primarySubmissionDomain}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{primarySubmissionDomain}{primarySubmissionDomain}}
+{\footnotesize\ttfamily \label{struct_parameters_a22fdf73cc9aa31f94e2edb0738b91ce4} 
+int Parameters::\+primary\+Submission\+Domain}
+
+\doxylink{struct_control}{Control}:\+ consider primary submission domain (usually 1) \Hypertarget{struct_parameters_a66edfe04b880cf7060f40eae3a1aa695}\index{Parameters@{Parameters}!secondaryReviewerExpertise@{secondaryReviewerExpertise}}
+\index{secondaryReviewerExpertise@{secondaryReviewerExpertise}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{secondaryReviewerExpertise}{secondaryReviewerExpertise}}
+{\footnotesize\ttfamily \label{struct_parameters_a66edfe04b880cf7060f40eae3a1aa695} 
+int Parameters::\+secondary\+Reviewer\+Expertise}
+
+\doxylink{struct_control}{Control}:\+ consider secondary reviewer expertise (0/\+1) \Hypertarget{struct_parameters_ab0a361652545514ac10813459c929f1f}\index{Parameters@{Parameters}!secondarySubmissionDomain@{secondarySubmissionDomain}}
+\index{secondarySubmissionDomain@{secondarySubmissionDomain}!Parameters@{Parameters}}
+\doxysubsubsection{\texorpdfstring{secondarySubmissionDomain}{secondarySubmissionDomain}}
+{\footnotesize\ttfamily \label{struct_parameters_ab0a361652545514ac10813459c929f1f} 
+int Parameters::\+secondary\+Submission\+Domain}
+
+\doxylink{struct_control}{Control}:\+ consider secondary submission domain (0/\+1) 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+models/\+\doxymbox{\hyperlink{_conference_data_8h}{Conference\+Data.\+h}}\end{DoxyCompactItemize}

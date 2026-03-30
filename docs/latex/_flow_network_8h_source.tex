@@ -1,0 +1,49 @@
+\doxysection{Flow\+Network.\+h}
+\hypertarget{_flow_network_8h_source}{}\label{_flow_network_8h_source}\index{/Users/tomas\_teixeira/Documents/LEIC/2A2S/DA/DA-\/Conference-\/Tool/code/include/FlowNetwork.h@{/Users/tomas\_teixeira/Documents/LEIC/2A2S/DA/DA-\/Conference-\/Tool/code/include/FlowNetwork.h}}
+\doxymbox{\hyperlink{_flow_network_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FLOWNETWORK\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FLOWNETWORK\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_mutable_priority_queue}{MutablePriorityQueue}};}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_graph_8h}{Graph.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_conference_data_8h}{models/ConferenceData.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_assignment_data_8h}{models/AssignmentData.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_flow_network}{FlowNetwork}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \doxymbox{\hyperlink{struct_assignment_result}{AssignmentResult}}\ \doxymbox{\hyperlink{class_flow_network_a5c42f77d71c4a3ae8e9b101adb841fa9}{buildAndSolve}}(}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_parameters}{Parameters}}\ \&params,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode}
+\DoxyCodeLine{00042\ \ \ \ \ );}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::vector<int>\ \doxymbox{\hyperlink{class_flow_network_aabc9eb47cdc3311795ec82a4b4bf9a2a}{riskAnalysisK1}}(}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_parameters}{Parameters}}\ \&params,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode}
+\DoxyCodeLine{00059\ \ \ \ \ );}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ getMatchDomain(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_submission}{Submission}}\ \&sub,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}}\ \&rev,\ \textcolor{keywordtype}{int}\ mode);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ edmondsKarp(\doxymbox{\hyperlink{class_graph}{Graph<std::string>}}\ \&graph,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&source,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ TODO(human):\ BFS\ that\ finds\ an\ augmenting\ path\ in\ the\ residual\ graph}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ bfs(\doxymbox{\hyperlink{class_graph}{Graph<std::string>}}\ \&graph,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&source,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink);}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

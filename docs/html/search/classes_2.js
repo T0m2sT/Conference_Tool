@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['edge_0',['Edge',['../classEdge.html',1,'']]]
+  ['displayformatter_0',['DisplayFormatter',['../class_display_formatter.html',1,'']]]
 ];
