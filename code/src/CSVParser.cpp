@@ -90,14 +90,12 @@ void CSVParser::parseLine(const std::vector<std::string> &tokens, Section sectio
 bool CSVParser::parseFile(const std::string &filename, std::vector<Submission> &submissions,
                           std::vector<Reviewer> &reviewers, Parameters &params, Control &control)
 {
-    // Open File
     std::ifstream file(filename);
 
     if (!file.is_open()) {
-        // ERROR CANNOT OPEN FILE
+        // Error handled by the ErrorReporting Class
         return false;
     }
-    //
 
     Section section = NONE;
     std::string line;
