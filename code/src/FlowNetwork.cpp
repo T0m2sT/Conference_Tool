@@ -70,9 +70,8 @@ int FlowNetwork::dfsSend(Graph<std::string> &graph, Vertex<std::string> *curr,
     if (info == sink) return pushed;
 
     const auto adj = curr->getAdj();
-    int &it = iter[info];
 
-    for (; it < (int)adj.size(); ++it) {
+    for (int &it = iter[info]; it < (int)adj.size(); ++it) {
         Edge<std::string> *e = adj[it];
         Vertex<std::string> *dest = e->getDest();
         int residual = (int)(e->getWeight() - e->getFlow());
