@@ -49,7 +49,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"CSVParser_8cpp.html"
+"_assignment_data_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

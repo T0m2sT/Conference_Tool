@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reviewer_0',['Reviewer',['../structReviewer.html',1,'']]]
+  ['parameters_0',['Parameters',['../struct_parameters.html',1,'']]]
 ];

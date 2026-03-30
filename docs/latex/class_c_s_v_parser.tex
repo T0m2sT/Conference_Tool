@@ -1,0 +1,67 @@
+\doxysection{CSVParser Class Reference}
+\hypertarget{class_c_s_v_parser}{}\label{class_c_s_v_parser}\index{CSVParser@{CSVParser}}
+
+
+{\ttfamily \+\#include $<$CSVParser.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_c_s_v_parser_a7e51d51fb2f3df494ef183268deeb2e2}{CSVParser}} ()=default
+\item 
+bool \doxymbox{\hyperlink{class_c_s_v_parser_ae5d043420e6e96684721914a157b38a3}{parse\+File}} (const std::\+string \&filename, std::\+vector$<$ \doxymbox{\hyperlink{struct_submission}{Submission}} $>$ \&submissions, std::\+vector$<$ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}} $>$ \&reviewers, \doxymbox{\hyperlink{struct_parameters}{Parameters}} \&params, \doxymbox{\hyperlink{struct_control}{Control}} \&control)
+\begin{DoxyCompactList}\small\item\em Parse the CSV file and fill the given containers with data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_c_s_v_parser_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_c_s_v_parser_a7e51d51fb2f3df494ef183268deeb2e2}\index{CSVParser@{CSVParser}!CSVParser@{CSVParser}}
+\index{CSVParser@{CSVParser}!CSVParser@{CSVParser}}
+\doxysubsubsection{\texorpdfstring{CSVParser()}{CSVParser()}}
+{\footnotesize\ttfamily \label{class_c_s_v_parser_a7e51d51fb2f3df494ef183268deeb2e2} 
+CSVParser::\+\+CSVParser (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_c_s_v_parser_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_c_s_v_parser_ae5d043420e6e96684721914a157b38a3}\index{CSVParser@{CSVParser}!parseFile@{parseFile}}
+\index{parseFile@{parseFile}!CSVParser@{CSVParser}}
+\doxysubsubsection{\texorpdfstring{parseFile()}{parseFile()}}
+{\footnotesize\ttfamily \label{class_c_s_v_parser_ae5d043420e6e96684721914a157b38a3} 
+bool CSVParser::\+parse\+File (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filename}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{struct_submission}{Submission}} $>$ \&}]{submissions}{, }\item[{std::\+vector$<$ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{\doxymbox{\hyperlink{struct_parameters}{Parameters}} \&}]{params}{, }\item[{\doxymbox{\hyperlink{struct_control}{Control}} \&}]{control}{}\end{DoxyParamCaption})}
+
+
+
+Parse the CSV file and fill the given containers with data. 
+
+Reads the file line by line, detects sections (\+\#\+Submissions, \+\#\+Reviewers, \doxylink{struct_parameters}{Parameters}, \doxylink{struct_control}{Control}), and delegates each data line to parse\+Line().
+
+{\bfseries{Time Complexity:\+}} O(L · T) where L = number of lines in the file, T = max tokens per line. In practice O(\+L) since T is bounded by the fixed CSV column count.
+
+{\bfseries{Space Complexity:\+}} O(\texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|}) for the parsed submissions and reviewers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the CSV file. \\
+\hline
+{\em submissions} & Vector to store parsed \doxylink{struct_submission}{Submission} data. \\
+\hline
+{\em reviewers} & Vector to store parsed \doxylink{struct_reviewer}{Reviewer} data. \\
+\hline
+{\em params} & Reference to \doxylink{struct_parameters}{Parameters} struct to populate. \\
+\hline
+{\em control} & Reference to \doxylink{struct_control}{Control} struct to populate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if file parsed successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+parser/\+\doxymbox{\hyperlink{_c_s_v_parser_8h}{CSVParser.\+h}}\item 
+/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{_c_s_v_parser_8cpp}{CSVParser.\+cpp}}\end{DoxyCompactItemize}

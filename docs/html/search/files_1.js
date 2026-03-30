@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['flownetwork_2ecpp_0',['FlowNetwork.cpp',['../FlowNetwork_8cpp.html',1,'']]],
-  ['flownetwork_2eh_1',['FlowNetwork.h',['../FlowNetwork_8h.html',1,'']]]
+  ['conferencedata_2eh_0',['ConferenceData.h',['../_conference_data_8h.html',1,'']]],
+  ['csvparser_2ecpp_1',['CSVParser.cpp',['../_c_s_v_parser_8cpp.html',1,'']]],
+  ['csvparser_2eh_2',['CSVParser.h',['../_c_s_v_parser_8h.html',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['flow_0',['flow',['../classEdge.html#a30808601fa37f509147eabf9cc5f9ed6',1,'Edge']]],
-  ['fullysatisfied_1',['fullySatisfied',['../structAssignmentResult.html#a36def0560c32960ac5468a39780d0654',1,'AssignmentResult']]]
+  ['g_5foriginaltermios_0',['g_originalTermios',['../main_8cpp.html#a1f61f80fbb464146c93ea74b1c7839e1',1,'main.cpp']]],
+  ['generateassignments_1',['generateAssignments',['../struct_control.html#ab5d6662e13b5a2e77faf461d66ab5cdc',1,'Control']]]
 ];

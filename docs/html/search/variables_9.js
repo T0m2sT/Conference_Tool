@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['low_0',['low',['../classVertex.html#a35d937c418952520cfa26b098e86b755',1,'Vertex']]]
+  ['name_0',['name',['../struct_reviewer.html#af9ab4025cd39328e9ce594ef165e9e9c',1,'Reviewer']]],
+  ['num_1',['num',['../class_vertex.html#aeb941bcd51ef71c6101e02eaed1cae12',1,'Vertex']]]
 ];

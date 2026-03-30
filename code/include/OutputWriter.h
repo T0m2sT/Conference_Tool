@@ -14,6 +14,12 @@ class OutputWriter {
 public:
     /**
      * @brief Writes the complete output file.
+     *
+     * Delegates to writeAssignments, writeMissingReviews, and writeRiskAnalysis.
+     *
+     * **Time Complexity:** O(A log A)
+     *   where A = number of assignments (dominated by the reviewer-perspective sort).
+     *
      * @param filename Path to output file.
      * @param result Assignment result data.
      * @param riskAnalysis Risk analysis mode (0 = none).
@@ -26,7 +32,13 @@ public:
 
 private:
     /**
-     * @brief Writes assignment results (both perspectives).
+     * @brief Writes assignment results from both perspectives (by-submission and by-reviewer).
+     *
+     * The by-submission list is already sorted from buildAndSolve.
+     * The by-reviewer list is sorted here by reviewer ID, then submission ID.
+     *
+     * **Time Complexity:** O(A log A) for the reviewer-perspective sort, O(A) for writing.
+     *
      * @param file Output file stream.
      * @param result Assignment result data.
      */
@@ -34,7 +46,10 @@ private:
                                  const AssignmentResult &result);
 
     /**
-     * @brief Writes missing reviews section.
+     * @brief Writes missing reviews section (submissions that couldn't get enough reviewers).
+     *
+     * **Time Complexity:** O(M) where M = number of missing review entries.
+     *
      * @param file Output file stream.
      * @param result Assignment result data.
      */
@@ -43,6 +58,9 @@ private:
 
     /**
      * @brief Writes risk analysis section.
+     *
+     * **Time Complexity:** O(K) where K = number of at-risk reviewers.
+     *
      * @param file Output file stream.
      * @param riskAnalysis Risk analysis mode.
      * @param atRiskReviewers Sorted list of at-risk reviewer IDs.
