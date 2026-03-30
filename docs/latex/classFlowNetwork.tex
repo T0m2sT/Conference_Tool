@@ -23,7 +23,16 @@ Builds a Max-\/\+Flow network from conference data and solves the review assignm
 
 Node naming scheme (used as vertex info in \doxylink{classGraph}{Graph$<$std::\+string$>$}):\+ "{}source"{} — the super source "{}sink"{} — the super sink "{}sub\+\_\+$<$id$>$"{} — submission node "{}rev\+\_\+$<$id$>$"{} — reviewer node
 
-Time complexity of build\+And\+Solve:\+ O(\+V \texorpdfstring{$\ast$}{*} E\texorpdfstring{$^\wedge$}{\string^}2) for Edmonds-\/\+Karp, where V = 2 + \texorpdfstring{$\vert$}{|}submissions\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}reviewers\texorpdfstring{$\vert$}{|}, E = edges based on domain matching. 
+{\bfseries{Algorithm:\+}} Dinic\textquotesingle{}s algorithm — O(V² · E) general, O(E · √V) on unit-\/capacity bipartite graphs.
+
+This network is a 4-\/layer bipartite graph (source → submissions → reviewers → sink) where all sub→rev edges have unit capacity, so the O(E · √V) bound applies.
+
+where V = 2 + \texorpdfstring{$\vert$}{|}submissions\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}reviewers\texorpdfstring{$\vert$}{|}, E = matching edges + source/\+sink edges.
+
+\begin{DoxyNote}{Note}
+The max-\/flow value is unique, but the specific assignment of reviewers to submissions is not — when multiple reviewers share the same domain expertise, different algorithms (e.\+g., Edmonds-\/\+Karp vs Dinic\textquotesingle{}s) may produce different but equally valid assignments. All outputs satisfy the same constraints (Min\+Reviews, Max\+Reviews, domain matching). 
+\end{DoxyNote}
+
 
 \label{doc-func-members}
 \Hypertarget{classFlowNetwork_doc-func-members}
@@ -37,6 +46,16 @@ Time complexity of build\+And\+Solve:\+ O(\+V \texorpdfstring{$\ast$}{*} E\texor
 
 
 Build the flow network and compute the max-\/flow assignment. 
+
+{\bfseries{Time Complexity:\+}} O(E · √V)
+\begin{DoxyItemize}
+\item Network construction:\+ O(\texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} · \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|}) for edge creation
+\item Dinic\textquotesingle{}s max-\/flow on this unit-\/capacity bipartite network:\+ O(E · √V)
+\item \doxylink{structAssignment}{Assignment} extraction:\+ O(\texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} · \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|})
+\item Space:\+ O(V + E)
+\end{DoxyItemize}
+
+where V = \texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|} + 2, E ≈ \texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} · \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -61,6 +80,18 @@ std::\+vector$<$ int $>$ Flow\+Network::\+risk\+Analysis\+K1 (\begin{DoxyParamCa
 
 
 Run risk analysis for K=1. Tests each reviewer\textquotesingle{}s removal and checks if all submissions still get Min\+Reviews. 
+
+{\bfseries{Time Complexity:\+}} O(\texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|} · E · √V)
+\begin{DoxyItemize}
+\item For each reviewer (\texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|} iterations):\+
+\begin{DoxyItemize}
+\item Rebuild network excluding that reviewer:\+ O(\texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} · \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|})
+\item Run Dinic\textquotesingle{}s max-\/flow:\+ O(E · √V)
+\end{DoxyItemize}
+\item Total:\+ O(\texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|} · E · √V)
+\end{DoxyItemize}
+
+where V = \texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|} + 2, E ≈ \texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} · \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|}.
 
 
 \begin{DoxyParams}{Parameters}

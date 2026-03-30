@@ -1,0 +1,68 @@
+\doxysection{Error\+Reporting Class Reference}
+\hypertarget{classErrorReporting}{}\label{classErrorReporting}\index{ErrorReporting@{ErrorReporting}}
+
+
+Handles error report generation and batch result formatting.  
+
+
+
+
+{\ttfamily \+\#include $<$Error\+Reporting.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{classErrorReporting_a6ad07c3e3e5bd5814510027ce1ac5de8}{write\+Error\+Report}} (const std::\+string \&output\+Path, std::\+vector$<$ std::\+pair$<$ std::\+string, std::\+vector$<$ std::\+string $>$ $>$ $>$ \&file\+Errors)
+\begin{DoxyCompactList}\small\item\em Writes an error report for one or more files. \end{DoxyCompactList}\item 
+static std::\+string \doxymbox{\hyperlink{classErrorReporting_a3bc727be1cfa60b2c28c25af6190c443}{format\+Batch\+Line}} (const std::\+string \&filename, const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&result, const std::\+vector$<$ std::\+string $>$ \&errors, bool parse\+Failed)
+\begin{DoxyCompactList}\small\item\em Formats a one-\/line summary for a single dataset run. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles error report generation and batch result formatting. 
+
+Provides utilities for writing error reports to files and formatting single dataset batch processing results. 
+
+\label{doc-func-members}
+\Hypertarget{classErrorReporting_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classErrorReporting_a3bc727be1cfa60b2c28c25af6190c443}\index{ErrorReporting@{ErrorReporting}!formatBatchLine@{formatBatchLine}}
+\index{formatBatchLine@{formatBatchLine}!ErrorReporting@{ErrorReporting}}
+\doxysubsubsection{\texorpdfstring{formatBatchLine()}{formatBatchLine()}}
+{\footnotesize\ttfamily \label{classErrorReporting_a3bc727be1cfa60b2c28c25af6190c443} 
+std::\+string Error\+Reporting::\+format\+Batch\+Line (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{filename}{, }\item[{const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&}]{result}{, }\item[{const std::\+vector$<$ std::\+string $>$ \&}]{errors}{, }\item[{bool}]{parse\+Failed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Formats a one-\/line summary for a single dataset run. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Just the file name (e.\+g. "{}dataset1.\+csv"{}). \\
+\hline
+{\em result} & The assignment result from the flow network. \\
+\hline
+{\em errors} & Validation errors (empty if none). \\
+\hline
+{\em parse\+Failed} & True if the CSV could not be parsed at all. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A short summary string that fits inside the menu box (max \texorpdfstring{$\sim$}{\string~}60 chars). 
+\end{DoxyReturn}
+\Hypertarget{classErrorReporting_a6ad07c3e3e5bd5814510027ce1ac5de8}\index{ErrorReporting@{ErrorReporting}!writeErrorReport@{writeErrorReport}}
+\index{writeErrorReport@{writeErrorReport}!ErrorReporting@{ErrorReporting}}
+\doxysubsubsection{\texorpdfstring{writeErrorReport()}{writeErrorReport()}}
+{\footnotesize\ttfamily \label{classErrorReporting_a6ad07c3e3e5bd5814510027ce1ac5de8} 
+void Error\+Reporting::\+write\+Error\+Report (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{output\+Path}{, }\item[{std::\+vector$<$ std::\+pair$<$ std::\+string, std::\+vector$<$ std::\+string $>$ $>$ $>$ \&}]{file\+Errors}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Writes an error report for one or more files. 
+
+Each entry is a pair of \{filename, list of errors\}. Entries are written sorted by filename. 
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{ErrorReporting_8h}{Error\+Reporting.\+h}}\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{ErrorReporting_8cpp}{Error\+Reporting.\+cpp}}\end{DoxyCompactItemize}

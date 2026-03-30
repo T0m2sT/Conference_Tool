@@ -1,0 +1,41 @@
+\doxysection{Input\+Validator.\+h}
+\hypertarget{InputValidator_8h_source}{}\label{InputValidator_8h_source}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/parser/InputValidator.h@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/parser/InputValidator.h}}
+\doxymbox{\hyperlink{InputValidator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INPUTVALIDATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INPUTVALIDATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ConferenceData_8h}{models/ConferenceData.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classInputValidator}{InputValidator}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classInputValidator_aa8f7a12d08a2cc0a3e156bdb5eb091b6}{validate}}(\textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structControl}{Control}}\ \&control);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\doxymbox{\hyperlink{classInputValidator_a91d3357c71c5f494e71ecae9f815614c}{getErrors}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classInputValidator_a3b03bc82fc072bf8044c2c07c1f07976}{printErrors}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00054\ \ \ \ \ std::vector<std::string>\ errors\_;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ validateSubmissions(\textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ validateReviewers(\textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ validateFieldFormats(\textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ validateParameters(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ validateControl(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structControl}{Control}}\ \&control);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ validateCrossConstraints(\textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structControl}{Control}}\ \&control);}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INPUTVALIDATOR\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

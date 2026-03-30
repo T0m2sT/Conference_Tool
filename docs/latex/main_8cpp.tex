@@ -1,22 +1,27 @@
-\doxysection{/\+\+Users/\+tomas\+\_\+teixeira/\+\+Documents/\+\+LEIC/\+2\+A2\+S/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+main.cpp File Reference}
-\hypertarget{main_8cpp}{}\label{main_8cpp}\index{/Users/tomas\_teixeira/Documents/LEIC/2A2S/DA/DA-\/Conference-\/Tool/code/src/main.cpp@{/Users/tomas\_teixeira/Documents/LEIC/2A2S/DA/DA-\/Conference-\/Tool/code/src/main.cpp}}
+\doxysection{/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/src/main.cpp@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/src/main.cpp}}
 {\ttfamily \+\#include $<$iostream$>$}\newline
 {\ttfamily \+\#include $<$string$>$}\newline
 {\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
 {\ttfamily \+\#include $<$csignal$>$}\newline
+{\ttfamily \+\#include $<$filesystem$>$}\newline
 {\ttfamily \+\#include $<$termios.\+h$>$}\newline
 {\ttfamily \+\#include $<$unistd.\+h$>$}\newline
 {\ttfamily \+\#include "{}parser/\+\+CSVParser.\+h"{}}\newline
+{\ttfamily \+\#include "{}parser/\+\+Input\+Validator.\+h"{}}\newline
 {\ttfamily \+\#include "{}models/\+\+Conference\+Data.\+h"{}}\newline
 {\ttfamily \+\#include "{}Flow\+Network.\+h"{}}\newline
 {\ttfamily \+\#include "{}Output\+Writer.\+h"{}}\newline
 {\ttfamily \+\#include "{}Display\+Formatter.\+h"{}}\newline
 {\ttfamily \+\#include "{}Menu.\+h"{}}\newline
+{\ttfamily \+\#include "{}Error\+Reporting.\+h"{}}\newline
+{\ttfamily \+\#include "{}Batch\+Processor.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{main_8cpp_a45773102d5e0238d22ca03ece6f5d80c}{run\+Assignment}} (const std::\+vector$<$ \doxymbox{\hyperlink{struct_submission}{Submission}} $>$ \&submissions, const std::\+vector$<$ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}} $>$ \&reviewers, const \doxymbox{\hyperlink{struct_parameters}{Parameters}} \&params, const \doxymbox{\hyperlink{struct_control}{Control}} \&control)
-\begin{DoxyCompactList}\small\item\em Runs the assignment algorithm and returns formatted display lines. \end{DoxyCompactList}\item 
+std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{main_8cpp_a45773102d5e0238d22ca03ece6f5d80c}{run\+Assignment}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions, const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers, const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, const \doxymbox{\hyperlink{structControl}{Control}} \&control)
+\item 
 int \doxymbox{\hyperlink{main_8cpp_af69b9c19ba7801236d32d342034b77d6}{run\+Batch\+Mode}} (const std::\+string \&input\+File, const std::\+string \&output\+File)
 \item 
 void \doxymbox{\hyperlink{main_8cpp_a52bd440dfc168262222a8dcd76b4d3e1}{restore\+Terminal}} (int)
@@ -49,13 +54,9 @@ void restore\+Terminal (\begin{DoxyParamCaption}\item[{int}]{}{}\end{DoxyParamCa
 \index{runAssignment@{runAssignment}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{runAssignment()}{runAssignment()}}
 {\footnotesize\ttfamily \label{main_8cpp_a45773102d5e0238d22ca03ece6f5d80c} 
-std::\+vector$<$ std::\+string $>$ run\+Assignment (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{struct_submission}{Submission}} $>$ \&}]{submissions}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{struct_reviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{const \doxymbox{\hyperlink{struct_parameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{struct_control}{Control}} \&}]{control}{}\end{DoxyParamCaption})}
+std::\+vector$<$ std::\+string $>$ run\+Assignment (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{structControl}{Control}} \&}]{control}{}\end{DoxyParamCaption})}
 
-
-
-Runs the assignment algorithm and returns formatted display lines. 
-
-Bridges the algorithm (\doxylink{class_flow_network}{Flow\+Network}) and the UI (\doxylink{class_menu}{Menu}) without either knowing about the other. Also writes the output file as a side effect. \Hypertarget{main_8cpp_af69b9c19ba7801236d32d342034b77d6}\index{main.cpp@{main.cpp}!runBatchMode@{runBatchMode}}
+\Hypertarget{main_8cpp_af69b9c19ba7801236d32d342034b77d6}\index{main.cpp@{main.cpp}!runBatchMode@{runBatchMode}}
 \index{runBatchMode@{runBatchMode}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{runBatchMode()}{runBatchMode()}}
 {\footnotesize\ttfamily \label{main_8cpp_af69b9c19ba7801236d32d342034b77d6} 

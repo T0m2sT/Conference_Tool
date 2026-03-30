@@ -104,31 +104,31 @@ $(function(){initNavTree('CSVParser_8h_source.html','',''); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classCSVParser.html#a7e51d51fb2f3df494ef183268deeb2e2">   11</a></span>    <a class="code hl_function" href="classCSVParser.html#a7e51d51fb2f3df494ef183268deeb2e2">CSVParser</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCSVParser.html#ae5d043420e6e96684721914a157b38a3">parseFile</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                   std::vector&lt;Submission&gt; &amp;submissions,</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                   std::vector&lt;Reviewer&gt; &amp;reviewers,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                   <a class="code hl_struct" href="structParameters.html">Parameters</a> &amp;params,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                   <a class="code hl_struct" href="structControl.html">Control</a> &amp;control);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">enum</span> Section { NONE, SUBMISSIONS, REVIEWERS, PARAMETERS, CONTROL };</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    Section detectSection(<span class="keyword">const</span> std::string &amp;line);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> parseLine(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;tokens,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                   Section section,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                   std::vector&lt;Submission&gt; &amp;submissions,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                   std::vector&lt;Reviewer&gt; &amp;reviewers,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                   <a class="code hl_struct" href="structParameters.html">Parameters</a> &amp;params,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                   <a class="code hl_struct" href="structControl.html">Control</a> &amp;control);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string trim(<span class="keyword">const</span> std::string &amp;s);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::vector&lt;std::string&gt; splitCSVLine(<span class="keyword">const</span> std::string &amp;line);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classCSVParser.html#ae5d043420e6e96684721914a157b38a3">parseFile</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                   std::vector&lt;Submission&gt; &amp;submissions,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                   std::vector&lt;Reviewer&gt; &amp;reviewers,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                   <a class="code hl_struct" href="structParameters.html">Parameters</a> &amp;params,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                   <a class="code hl_struct" href="structControl.html">Control</a> &amp;control);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">enum</span> Section { NONE, SUBMISSIONS, REVIEWERS, PARAMETERS, CONTROL };</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    Section detectSection(<span class="keyword">const</span> std::string &amp;line);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> parseLine(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;tokens,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                   Section section,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                   std::vector&lt;Submission&gt; &amp;submissions,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                   std::vector&lt;Reviewer&gt; &amp;reviewers,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                   <a class="code hl_struct" href="structParameters.html">Parameters</a> &amp;params,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                   <a class="code hl_struct" href="structControl.html">Control</a> &amp;control);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string trim(<span class="keyword">const</span> std::string &amp;s);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::vector&lt;std::string&gt; splitCSVLine(<span class="keyword">const</span> std::string &amp;line);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif </span><span class="comment">/* CSVPARSER_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif </span><span class="comment">/* CSVPARSER_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aConferenceData_8h_html"><div class="ttname"><a href="ConferenceData_8h.html">ConferenceData.h</a></div><div class="ttdoc">Defines the core data structures for the Conference Review Assignment project.</div></div>
 <div class="ttc" id="aclassCSVParser_html_a7e51d51fb2f3df494ef183268deeb2e2"><div class="ttname"><a href="classCSVParser.html#a7e51d51fb2f3df494ef183268deeb2e2">CSVParser::CSVParser</a></div><div class="ttdeci">CSVParser()=default</div></div>
 <div class="ttc" id="aclassCSVParser_html_ae5d043420e6e96684721914a157b38a3"><div class="ttname"><a href="classCSVParser.html#ae5d043420e6e96684721914a157b38a3">CSVParser::parseFile</a></div><div class="ttdeci">bool parseFile(const std::string &amp;filename, std::vector&lt; Submission &gt; &amp;submissions, std::vector&lt; Reviewer &gt; &amp;reviewers, Parameters &amp;params, Control &amp;control)</div><div class="ttdoc">Parse the CSV file and fill the given containers with data.</div><div class="ttdef"><b>Definition</b> CSVParser.cpp:90</div></div>

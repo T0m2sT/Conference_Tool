@@ -107,7 +107,10 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Builds a Max-Flow network from conference data and solves the review assignment problem. </p>
 <p>Node naming scheme (used as vertex info in <a class="el" href="classGraph.html">Graph&lt;std::string&gt;</a>): "source" — the super source "sink" — the super sink "sub_&lt;id&gt;" — submission node "rev_&lt;id&gt;" — reviewer node</p>
-<p>Time complexity of buildAndSolve: O(V * E^2) for Edmonds-Karp, where V = 2 + |submissions| + |reviewers|, E = edges based on domain matching. </p>
+<p><b>Algorithm:</b> Dinic's algorithm — O(V² · E) general, O(E · √V) on unit-capacity bipartite graphs.</p>
+<p>This network is a 4-layer bipartite graph (source → submissions → reviewers → sink) where all sub→rev edges have unit capacity, so the O(E · √V) bound applies.</p>
+<p>where V = 2 + |submissions| + |reviewers|, E = matching edges + source/sink edges.</p>
+<dl class="section note"><dt>Note</dt><dd>The max-flow value is unique, but the specific assignment of reviewers to submissions is not — when multiple reviewers share the same domain expertise, different algorithms (e.g., Edmonds-Karp vs Dinic's) may produce different but equally valid assignments. All outputs satisfy the same constraints (MinReviews, MaxReviews, domain matching). </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a5c42f77d71c4a3ae8e9b101adb841fa9" name="a5c42f77d71c4a3ae8e9b101adb841fa9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5c42f77d71c4a3ae8e9b101adb841fa9">&#9670;&#160;</a></span>buildAndSolve()</h2>
@@ -139,6 +142,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Build the flow network and compute the max-flow assignment. </p>
+<p><b>Time Complexity:</b> O(E · √V)</p><ul>
+<li>Network construction: O(|S| · |R|) for edge creation</li>
+<li>Dinic's max-flow on this unit-capacity bipartite network: O(E · √V)</li>
+<li><a class="el" href="structAssignment.html" title="Represents a single review assignment: submission -&gt; reviewer with a matched domain.">Assignment</a> extraction: O(|S| · |R|)</li>
+<li>Space: O(V + E)</li>
+</ul>
+<p>where V = |S| + |R| + 2, E ≈ |S| · |R|.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">submissions</td><td>Parsed submissions </td></tr>
@@ -182,6 +192,15 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Run risk analysis for K=1. Tests each reviewer's removal and checks if all submissions still get MinReviews. </p>
+<p><b>Time Complexity:</b> O(|R| · E · √V)</p><ul>
+<li>For each reviewer (|R| iterations):<ul>
+<li>Rebuild network excluding that reviewer: O(|S| · |R|)</li>
+<li>Run Dinic's max-flow: O(E · √V)</li>
+</ul>
+</li>
+<li>Total: O(|R| · E · √V)</li>
+</ul>
+<p>where V = |S| + |R| + 2, E ≈ |S| · |R|.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">submissions</td><td>Parsed submissions </td></tr>

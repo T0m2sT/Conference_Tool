@@ -1,0 +1,83 @@
+\doxysection{Input\+Validator Class Reference}
+\hypertarget{classInputValidator}{}\label{classInputValidator}\index{InputValidator@{InputValidator}}
+
+
+Validates parsed input data and collects all errors as a summary.  
+
+
+
+
+{\ttfamily \+\#include $<$Input\+Validator.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{classInputValidator_aa8f7a12d08a2cc0a3e156bdb5eb091b6}{validate}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions, const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers, const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, const \doxymbox{\hyperlink{structControl}{Control}} \&control)
+\begin{DoxyCompactList}\small\item\em Runs all validation checks on the parsed data. \end{DoxyCompactList}\item 
+const std::\+vector$<$ std::\+string $>$ \& \doxymbox{\hyperlink{classInputValidator_a91d3357c71c5f494e71ecae9f815614c}{get\+Errors}} () const
+\begin{DoxyCompactList}\small\item\em Returns the list of errors found during the last validation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classInputValidator_a3b03bc82fc072bf8044c2c07c1f07976}{print\+Errors}} () const
+\begin{DoxyCompactList}\small\item\em Prints all collected errors to stderr as a summary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Validates parsed input data and collects all errors as a summary. 
+
+Separates validation logic from parsing, ensuring the parser only handles file reading and tokenization while this class handles all consistency and correctness checks. 
+
+\label{doc-func-members}
+\Hypertarget{classInputValidator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInputValidator_a91d3357c71c5f494e71ecae9f815614c}\index{InputValidator@{InputValidator}!getErrors@{getErrors}}
+\index{getErrors@{getErrors}!InputValidator@{InputValidator}}
+\doxysubsubsection{\texorpdfstring{getErrors()}{getErrors()}}
+{\footnotesize\ttfamily \label{classInputValidator_a91d3357c71c5f494e71ecae9f815614c} 
+const std::\+vector$<$ std::\+string $>$ \& Input\+Validator::\+get\+Errors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the list of errors found during the last validation. 
+
+\begin{DoxyReturn}{Returns}
+Const reference to the error list. 
+\end{DoxyReturn}
+\Hypertarget{classInputValidator_a3b03bc82fc072bf8044c2c07c1f07976}\index{InputValidator@{InputValidator}!printErrors@{printErrors}}
+\index{printErrors@{printErrors}!InputValidator@{InputValidator}}
+\doxysubsubsection{\texorpdfstring{printErrors()}{printErrors()}}
+{\footnotesize\ttfamily \label{classInputValidator_a3b03bc82fc072bf8044c2c07c1f07976} 
+void Input\+Validator::\+print\+Errors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Prints all collected errors to stderr as a summary. 
+
+\Hypertarget{classInputValidator_aa8f7a12d08a2cc0a3e156bdb5eb091b6}\index{InputValidator@{InputValidator}!validate@{validate}}
+\index{validate@{validate}!InputValidator@{InputValidator}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily \label{classInputValidator_aa8f7a12d08a2cc0a3e156bdb5eb091b6} 
+bool Input\+Validator::\+validate (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{, }\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{, }\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{structControl}{Control}} \&}]{control}{}\end{DoxyParamCaption})}
+
+
+
+Runs all validation checks on the parsed data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em submissions} & Parsed submissions. \\
+\hline
+{\em reviewers} & Parsed reviewers. \\
+\hline
+{\em params} & Parsed parameters. \\
+\hline
+{\em control} & Parsed control settings. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all checks pass, false if any errors were found.
+\end{DoxyReturn}
+{\bfseries{Time Complexity:\+}} O(\texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} · \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|}) dominated by domain coverage check. 
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+parser/\+\doxymbox{\hyperlink{InputValidator_8h}{Input\+Validator.\+h}}\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{InputValidator_8cpp}{Input\+Validator.\+cpp}}\end{DoxyCompactItemize}

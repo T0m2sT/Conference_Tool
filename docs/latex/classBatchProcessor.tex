@@ -1,0 +1,69 @@
+\doxysection{Batch\+Processor Class Reference}
+\hypertarget{classBatchProcessor}{}\label{classBatchProcessor}\index{BatchProcessor@{BatchProcessor}}
+
+
+Handles batch processing of CSV files.  
+
+
+
+
+{\ttfamily \+\#include $<$Batch\+Processor.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{classBatchProcessor_a1cdd17d9fedb1a92af2fb1e53d4bee50}{run\+Batch\+Mode}} (const std::\+string \&input\+File, const std::\+string \&output\+File)
+\begin{DoxyCompactList}\small\item\em Processes a single CSV file in batch mode. \end{DoxyCompactList}\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{classBatchProcessor_a486ff3dc41ecfd4fcf10bb9398d8de0f}{run\+All\+Datasets}} ()
+\begin{DoxyCompactList}\small\item\em Runs all CSV files in dataset/\+input/\+ and collects summary lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles batch processing of CSV files. 
+
+Provides functionality for processing single files in batch mode and running all datasets in a directory. 
+
+\label{doc-func-members}
+\Hypertarget{classBatchProcessor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBatchProcessor_a486ff3dc41ecfd4fcf10bb9398d8de0f}\index{BatchProcessor@{BatchProcessor}!runAllDatasets@{runAllDatasets}}
+\index{runAllDatasets@{runAllDatasets}!BatchProcessor@{BatchProcessor}}
+\doxysubsubsection{\texorpdfstring{runAllDatasets()}{runAllDatasets()}}
+{\footnotesize\ttfamily \label{classBatchProcessor_a486ff3dc41ecfd4fcf10bb9398d8de0f} 
+std::\+vector$<$ std::\+string $>$ Batch\+Processor::\+run\+All\+Datasets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Runs all CSV files in dataset/\+input/\+ and collects summary lines. 
+
+\begin{DoxyReturn}{Returns}
+Vector of strings summarizing the batch run, formatted for \doxylink{classMenu}{Menu} display 
+\end{DoxyReturn}
+\Hypertarget{classBatchProcessor_a1cdd17d9fedb1a92af2fb1e53d4bee50}\index{BatchProcessor@{BatchProcessor}!runBatchMode@{runBatchMode}}
+\index{runBatchMode@{runBatchMode}!BatchProcessor@{BatchProcessor}}
+\doxysubsubsection{\texorpdfstring{runBatchMode()}{runBatchMode()}}
+{\footnotesize\ttfamily \label{classBatchProcessor_a1cdd17d9fedb1a92af2fb1e53d4bee50} 
+int Batch\+Processor::\+run\+Batch\+Mode (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{input\+File}{, }\item[{const std::\+string \&}]{output\+File}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Processes a single CSV file in batch mode. 
+
+Parses the file, validates it, runs the assignment algorithm, and writes the output file. Prints errors to stderr.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+File} & Path to input CSV file \\
+\hline
+{\em output\+File} & Path to output CSV file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on error 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{BatchProcessor_8h}{Batch\+Processor.\+h}}\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{BatchProcessor_8cpp}{Batch\+Processor.\+cpp}}\end{DoxyCompactItemize}

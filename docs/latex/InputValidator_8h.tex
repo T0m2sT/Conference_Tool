@@ -1,0 +1,21 @@
+\doxysection{/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+parser/\+\+Input\+Validator.h File Reference}
+\hypertarget{InputValidator_8h}{}\label{InputValidator_8h}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/parser/InputValidator.h@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/parser/InputValidator.h}}
+
+
+Validates parsed conference data for consistency and correctness.  
+
+
+{\ttfamily \+\#include "{}models/\+\+Conference\+Data.\+h"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classInputValidator}{Input\+Validator}}
+\begin{DoxyCompactList}\small\item\em Validates parsed input data and collects all errors as a summary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Validates parsed conference data for consistency and correctness. 
+
+Checks submissions, reviewers, parameters, and control settings for issues such as duplicate IDs, invalid domains, out-\/of-\/range parameters, shifted CSV fields, and feasibility constraints. 

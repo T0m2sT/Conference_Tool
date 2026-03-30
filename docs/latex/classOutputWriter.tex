@@ -2,7 +2,7 @@
 \hypertarget{classOutputWriter}{}\label{classOutputWriter}\index{OutputWriter@{OutputWriter}}
 
 
-Writes assignment results and risk analysis to an output CSV file.  
+Utility class responsible for writing output files.  
 
 
 
@@ -13,11 +13,11 @@ Writes assignment results and risk analysis to an output CSV file.
 \begin{DoxyCompactItemize}
 \item 
 static void \doxymbox{\hyperlink{classOutputWriter_a6675dc8236e806d81faf9dd8034e220f}{write}} (const std::\+string \&filename, const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&result, int risk\+Analysis, const std::\+vector$<$ int $>$ \&at\+Risk\+Reviewers)
-\begin{DoxyCompactList}\small\item\em Write the full output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Writes the complete output file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Writes assignment results and risk analysis to an output CSV file. 
+Utility class responsible for writing output files. 
 
 \label{doc-func-members}
 \Hypertarget{classOutputWriter_doc-func-members}
@@ -30,17 +30,21 @@ void Output\+Writer::\+write (\begin{DoxyParamCaption}\item[{const std::\+string
 
 
 
-Write the full output file. 
+Writes the complete output file. 
+
+Delegates to write\+Assignments, write\+Missing\+Reviews, and write\+Risk\+Analysis.
+
+{\bfseries{Time Complexity:\+}} O(\+A log A) where A = number of assignments (dominated by the reviewer-\/perspective sort).
 
 
 \begin{DoxyParams}{Parameters}
-{\em filename} & Output file path \\
+{\em filename} & Path to output file. \\
 \hline
-{\em result} & \doxylink{structAssignment}{Assignment} results \\
+{\em result} & \doxylink{structAssignment}{Assignment} result data. \\
 \hline
-{\em risk\+Analysis} & Risk analysis K value (0 = no risk section) \\
+{\em risk\+Analysis} & Risk analysis mode (0 = none). \\
 \hline
-{\em at\+Risk\+Reviewers} & Sorted list of at-\/risk reviewer IDs \\
+{\em at\+Risk\+Reviewers} & Sorted list of at-\/risk reviewer IDs. \\
 \hline
 \end{DoxyParams}
 

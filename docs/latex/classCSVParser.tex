@@ -37,6 +37,12 @@ bool CSVParser::\+parse\+File (\begin{DoxyParamCaption}\item[{const std::\+strin
 
 Parse the CSV file and fill the given containers with data. 
 
+Reads the file line by line, detects sections (\+\#\+Submissions, \+\#\+Reviewers, \doxylink{structParameters}{Parameters}, \doxylink{structControl}{Control}), and delegates each data line to parse\+Line().
+
+{\bfseries{Time Complexity:\+}} O(L · T) where L = number of lines in the file, T = max tokens per line. In practice O(\+L) since T is bounded by the fixed CSV column count.
+
+{\bfseries{Space Complexity:\+}} O(\texorpdfstring{$\vert$}{|}\+S\texorpdfstring{$\vert$}{|} + \texorpdfstring{$\vert$}{|}\+R\texorpdfstring{$\vert$}{|}) for the parsed submissions and reviewers.
+
 
 \begin{DoxyParams}{Parameters}
 {\em filename} & Path to the CSV file. \\

@@ -1,0 +1,88 @@
+\doxysection{Display\+Formatter Class Reference}
+\hypertarget{classDisplayFormatter}{}\label{classDisplayFormatter}\index{DisplayFormatter@{DisplayFormatter}}
+
+
+Converts domain data into display-\/ready string lines.  
+
+
+
+
+{\ttfamily \+\#include $<$Display\+Formatter.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{classDisplayFormatter_a43f8eca53767d50f7199f03ad6a74407}{format\+Submissions}} (const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&submissions)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{classDisplayFormatter_ac1816fab9c7ad3b725e5620c9f6facb3}{format\+Reviewers}} (const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&reviewers)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{classDisplayFormatter_ac79074f4f81253b24703e2ca90126c2f}{format\+Settings}} (const \doxymbox{\hyperlink{structParameters}{Parameters}} \&params, const \doxymbox{\hyperlink{structControl}{Control}} \&control)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{classDisplayFormatter_ac823f44e21e76cde27afa5c267f13945}{format\+Assignment\+Result}} (const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&result, const \doxymbox{\hyperlink{structControl}{Control}} \&control, const std::\+vector$<$ int $>$ \&at\+Risk\+Reviewers)
+\item 
+static std::\+vector$<$ std::\+string $>$ \doxymbox{\hyperlink{classDisplayFormatter_ac35de0b0105bf7399d96c0524f6aa4f9}{wrap\+Line}} (const std::\+string \&prefix, const std::\+string \&text, int max\+Width)
+\begin{DoxyCompactList}\small\item\em Wraps a string into multiple lines that fit within a maximum width. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Converts domain data into display-\/ready string lines. 
+
+Responsible for formatting submissions, reviewers, parameters, and assignment results into vectors of strings that the \doxylink{classMenu}{Menu} can render. Also provides text wrapping utilities for display formatting. 
+
+\label{doc-func-members}
+\Hypertarget{classDisplayFormatter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDisplayFormatter_ac823f44e21e76cde27afa5c267f13945}\index{DisplayFormatter@{DisplayFormatter}!formatAssignmentResult@{formatAssignmentResult}}
+\index{formatAssignmentResult@{formatAssignmentResult}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatAssignmentResult()}{formatAssignmentResult()}}
+{\footnotesize\ttfamily \label{classDisplayFormatter_ac823f44e21e76cde27afa5c267f13945} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Assignment\+Result (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structAssignmentResult}{Assignment\+Result}} \&}]{result}{, }\item[{const \doxymbox{\hyperlink{structControl}{Control}} \&}]{control}{, }\item[{const std::\+vector$<$ int $>$ \&}]{at\+Risk\+Reviewers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classDisplayFormatter_ac1816fab9c7ad3b725e5620c9f6facb3}\index{DisplayFormatter@{DisplayFormatter}!formatReviewers@{formatReviewers}}
+\index{formatReviewers@{formatReviewers}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatReviewers()}{formatReviewers()}}
+{\footnotesize\ttfamily \label{classDisplayFormatter_ac1816fab9c7ad3b725e5620c9f6facb3} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Reviewers (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structReviewer}{Reviewer}} $>$ \&}]{reviewers}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classDisplayFormatter_ac79074f4f81253b24703e2ca90126c2f}\index{DisplayFormatter@{DisplayFormatter}!formatSettings@{formatSettings}}
+\index{formatSettings@{formatSettings}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatSettings()}{formatSettings()}}
+{\footnotesize\ttfamily \label{classDisplayFormatter_ac79074f4f81253b24703e2ca90126c2f} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Settings (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structParameters}{Parameters}} \&}]{params}{, }\item[{const \doxymbox{\hyperlink{structControl}{Control}} \&}]{control}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classDisplayFormatter_a43f8eca53767d50f7199f03ad6a74407}\index{DisplayFormatter@{DisplayFormatter}!formatSubmissions@{formatSubmissions}}
+\index{formatSubmissions@{formatSubmissions}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{formatSubmissions()}{formatSubmissions()}}
+{\footnotesize\ttfamily \label{classDisplayFormatter_a43f8eca53767d50f7199f03ad6a74407} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+format\+Submissions (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \doxymbox{\hyperlink{structSubmission}{Submission}} $>$ \&}]{submissions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classDisplayFormatter_ac35de0b0105bf7399d96c0524f6aa4f9}\index{DisplayFormatter@{DisplayFormatter}!wrapLine@{wrapLine}}
+\index{wrapLine@{wrapLine}!DisplayFormatter@{DisplayFormatter}}
+\doxysubsubsection{\texorpdfstring{wrapLine()}{wrapLine()}}
+{\footnotesize\ttfamily \label{classDisplayFormatter_ac35de0b0105bf7399d96c0524f6aa4f9} 
+std::\+vector$<$ std::\+string $>$ Display\+Formatter::\+wrap\+Line (\begin{DoxyParamCaption}\item[{const std::\+string \&}]{prefix}{, }\item[{const std::\+string \&}]{text}{, }\item[{int}]{max\+Width}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Wraps a string into multiple lines that fit within a maximum width. 
+
+If the prefix starts with "{}!!"{}, continuation lines also get "{}!!"{} so that display\+In\+Box renders them all in red.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & The prefix for the first line (e.\+g. "{}-\/ "{} or "{}!!"{}) \\
+\hline
+{\em text} & The text to wrap \\
+\hline
+{\em max\+Width} & Maximum width including the prefix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of wrapped lines 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+include/\+\doxymbox{\hyperlink{DisplayFormatter_8h}{Display\+Formatter.\+h}}\item 
+/\+home/\+pinho/\+\+Classes/\+\+DA/\+\+DA-\/\+Conference-\/\+Tool/\+code/\+src/\+\doxymbox{\hyperlink{DisplayFormatter_8cpp}{Display\+Formatter.\+cpp}}\end{DoxyCompactItemize}

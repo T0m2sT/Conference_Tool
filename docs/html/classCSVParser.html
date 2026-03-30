@@ -162,6 +162,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Parse the CSV file and fill the given containers with data. </p>
+<p>Reads the file line by line, detects sections (#Submissions, #Reviewers, <a class="el" href="structParameters.html" title="Parameters controlling the review assignment problem.">Parameters</a>, <a class="el" href="structControl.html" title="Control settings for assignment generation and risk analysis.">Control</a>), and delegates each data line to parseLine().</p>
+<p><b>Time Complexity:</b> O(L · T) where L = number of lines in the file, T = max tokens per line. In practice O(L) since T is bounded by the fixed CSV column count.</p>
+<p><b>Space Complexity:</b> O(|S| + |R|) for the parsed submissions and reviewers.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Path to the CSV file. </td></tr>

@@ -10,58 +10,47 @@
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{Graph_8h}{Graph.h}}"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ConferenceData_8h}{models/ConferenceData.h}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structAssignment}{Assignment}}\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structAssignment_a19c094cacc0df98064feef4ccd3553ee}{submissionId}};}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structAssignment_a85fdbff1a85677bedfd965fbfa6e9925}{reviewerId}};}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structAssignment_a8baac933091fdb2a4373edc8c00325cf}{matchedDomain}};\ \ \textcolor{comment}{//\ which\ domain\ caused\ the\ match}}
-\DoxyCodeLine{00020\ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structMissingReview}{MissingReview}}\ \{}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structMissingReview_a515c8aa8be65577ea34e1473771e0c41}{submissionId}};}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structMissingReview_acf4ad3668f8b0424fd8bdf6eab65084f}{domain}};}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structMissingReview_a8015ff9ed407e412f648dbc59a7812ce}{missingCount}};}
-\DoxyCodeLine{00029\ \};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structAssignmentResult}{AssignmentResult}}\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ std::vector<Assignment>\ \doxymbox{\hyperlink{structAssignmentResult_ac6785346bd22ee11bfb1dffa3c7ed3ea}{assignments}};}
-\DoxyCodeLine{00036\ \ \ \ \ std::vector<MissingReview>\ \doxymbox{\hyperlink{structAssignmentResult_ae854e29474182e666a6105257ca7fafa}{missingReviews}};}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structAssignmentResult_acfd631756ed71ab5345490b929cd92f8}{totalAssignments}};}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structAssignmentResult_a36def0560c32960ac5468a39780d0654}{fullySatisfied}};\ \ \textcolor{comment}{//\ true\ if\ all\ submissions\ got\ MinReviews}}
-\DoxyCodeLine{00039\ \};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classFlowNetwork}{FlowNetwork}}\ \{}
-\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{structAssignmentResult}{AssignmentResult}}\ \doxymbox{\hyperlink{classFlowNetwork_a5c42f77d71c4a3ae8e9b101adb841fa9}{buildAndSolve}}(}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode}
-\DoxyCodeLine{00069\ \ \ \ \ );}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00081\ \ \ \ \ std::vector<int>\ \doxymbox{\hyperlink{classFlowNetwork_aabc9eb47cdc3311795ec82a4b4bf9a2a}{riskAnalysisK1}}(}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode}
-\DoxyCodeLine{00086\ \ \ \ \ );}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{AssignmentData_8h}{models/AssignmentData.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classFlowNetwork}{FlowNetwork}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{structAssignmentResult}{AssignmentResult}}\ \doxymbox{\hyperlink{classFlowNetwork_a5c42f77d71c4a3ae8e9b101adb841fa9}{buildAndSolve}}(}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode}
+\DoxyCodeLine{00059\ \ \ \ \ );}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00079\ \ \ \ \ std::vector<int>\ \doxymbox{\hyperlink{classFlowNetwork_aabc9eb47cdc3311795ec82a4b4bf9a2a}{riskAnalysisK1}}(}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode}
+\DoxyCodeLine{00084\ \ \ \ \ );}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ getMatchDomain(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSubmission}{Submission}}\ \&sub,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structReviewer}{Reviewer}}\ \&rev,\ \textcolor{keywordtype}{int}\ mode);}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ edmondsKarp(\doxymbox{\hyperlink{classGraph}{Graph<std::string>}}\ \&graph,}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&source,}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink);}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ TODO(human):\ BFS\ that\ finds\ an\ augmenting\ path\ in\ the\ residual\ graph}}
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ bfs(\doxymbox{\hyperlink{classGraph}{Graph<std::string>}}\ \&graph,}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&source,}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink);}
-\DoxyCodeLine{00112\ \};}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ bfsLevel(\doxymbox{\hyperlink{classGraph}{Graph<std::string>}}\ \&graph,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&source,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ int>\ \&level);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ dfsSend(\doxymbox{\hyperlink{classGraph}{Graph<std::string>}}\ \&graph,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classVertex}{Vertex<std::string>}}\ *curr,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pushed,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ int>\ \&level,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ int>\ \&iter);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ dinic(\doxymbox{\hyperlink{classGraph}{Graph<std::string>}}\ \&graph,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&source,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sink);}
+\DoxyCodeLine{00150\ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

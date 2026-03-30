@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['flownetwork_0',['FlowNetwork',['../class_flow_network.html',1,'']]]
+  ['edge_0',['Edge',['../classEdge.html',1,'']]],
+  ['errorreporting_1',['ErrorReporting',['../classErrorReporting.html',1,'']]]
 ];

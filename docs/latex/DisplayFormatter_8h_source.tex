@@ -1,0 +1,28 @@
+\doxysection{Display\+Formatter.\+h}
+\hypertarget{DisplayFormatter_8h_source}{}\label{DisplayFormatter_8h_source}\index{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/DisplayFormatter.h@{/home/pinho/Classes/DA/DA-\/Conference-\/Tool/code/include/DisplayFormatter.h}}
+\doxymbox{\hyperlink{DisplayFormatter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DISPLAYFORMATTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DISPLAYFORMATTER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ConferenceData_8h}{models/ConferenceData.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{AssignmentData_8h}{models/AssignmentData.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classDisplayFormatter}{DisplayFormatter}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ \doxymbox{\hyperlink{classDisplayFormatter_a43f8eca53767d50f7199f03ad6a74407}{formatSubmissions}}(\textcolor{keyword}{const}\ std::vector<Submission>\ \&submissions);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ \doxymbox{\hyperlink{classDisplayFormatter_ac1816fab9c7ad3b725e5620c9f6facb3}{formatReviewers}}(\textcolor{keyword}{const}\ std::vector<Reviewer>\ \&reviewers);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ \doxymbox{\hyperlink{classDisplayFormatter_ac79074f4f81253b24703e2ca90126c2f}{formatSettings}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structParameters}{Parameters}}\ \&params,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structControl}{Control}}\ \&control);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ \doxymbox{\hyperlink{classDisplayFormatter_ac823f44e21e76cde27afa5c267f13945}{formatAssignmentResult}}(}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structAssignmentResult}{AssignmentResult}}\ \&result,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structControl}{Control}}\ \&control,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\ \&atRiskReviewers);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::string>\ \doxymbox{\hyperlink{classDisplayFormatter_ac35de0b0105bf7399d96c0524f6aa4f9}{wrapLine}}(\textcolor{keyword}{const}\ std::string\ \&prefix,\ \textcolor{keyword}{const}\ std::string\ \&text,\ \textcolor{keywordtype}{int}\ maxWidth);}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

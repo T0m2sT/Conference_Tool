@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['submission_0',['Submission',['../struct_submission.html',1,'']]]
+  ['parameters_0',['Parameters',['../structParameters.html',1,'']]]
 ];

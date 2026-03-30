@@ -91,29 +91,20 @@ $(function(){initNavTree('AssignmentData_8h.html','',''); });
   <div class="headertitle"><div class="title">AssignmentData.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Defines the core data structures for the Conference Review Assignment project.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="AssignmentData_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Submission" id="r_Submission"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structSubmission.html">Submission</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a paper submission in the conference.  <a href="structSubmission.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Reviewer" id="r_Reviewer"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structReviewer.html">Reviewer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a reviewer for the conference.  <a href="structReviewer.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Parameters" id="r_Parameters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structParameters.html">Parameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structParameters.html" title="Parameters controlling the review assignment problem.">Parameters</a> controlling the review assignment problem.  <a href="structParameters.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Control" id="r_Control"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structControl.html">Control</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structControl.html" title="Control settings for assignment generation and risk analysis.">Control</a> settings for assignment generation and risk analysis.  <a href="structControl.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Assignment" id="r_Assignment"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structAssignment.html">Assignment</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single review assignment: submission -&gt; reviewer with a matched domain.  <a href="structAssignment.html#details">More...</a><br /></td></tr>
+<tr class="memitem:MissingReview" id="r_MissingReview"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structMissingReview.html">MissingReview</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a submission that couldn't get enough reviews.  <a href="structMissingReview.html#details">More...</a><br /></td></tr>
+<tr class="memitem:AssignmentResult" id="r_AssignmentResult"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structAssignmentResult.html">AssignmentResult</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of running the assignment algorithm.  <a href="structAssignmentResult.html#details">More...</a><br /></td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Defines the core data structures for the Conference Review Assignment project. </p>
-<p>Contains the main structs representing submissions, reviewers, parameters, and control settings. These are used throughout the project for parsing input, building the flow network, and generating outputs. </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['displayformatter_2ecpp_0',['DisplayFormatter.cpp',['../_display_formatter_8cpp.html',1,'']]],
-  ['displayformatter_2eh_1',['DisplayFormatter.h',['../_display_formatter_8h.html',1,'']]]
+  ['conferencedata_2eh_0',['ConferenceData.h',['../ConferenceData_8h.html',1,'']]],
+  ['csvparser_2ecpp_1',['CSVParser.cpp',['../CSVParser_8cpp.html',1,'']]],
+  ['csvparser_2eh_2',['CSVParser.h',['../CSVParser_8h.html',1,'']]]
 ];

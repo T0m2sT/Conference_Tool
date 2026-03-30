@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['displayformatter_0',['DisplayFormatter',['../class_display_formatter.html',1,'']]]
+  ['control_0',['Control',['../structControl.html',1,'']]],
+  ['csvparser_1',['CSVParser',['../classCSVParser.html',1,'']]]
 ];
