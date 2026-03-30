@@ -11,6 +11,7 @@
  *
  * Responsible for formatting submissions, reviewers, parameters,
  * and assignment results into vectors of strings that the Menu can render.
+ * Also provides text wrapping utilities for display formatting.
  */
 class DisplayFormatter {
 public:
@@ -21,6 +22,19 @@ public:
         const AssignmentResult &result,
         const Control &control,
         const std::vector<int> &atRiskReviewers);
+
+    /**
+     * @brief Wraps a string into multiple lines that fit within a maximum width.
+     *
+     * If the prefix starts with "!!", continuation lines also get "!!"
+     * so that displayInBox renders them all in red.
+     *
+     * @param prefix The prefix for the first line (e.g. "- " or "!!")
+     * @param text The text to wrap
+     * @param maxWidth Maximum width including the prefix
+     * @return Vector of wrapped lines
+     */
+    static std::vector<std::string> wrapLine(const std::string &prefix, const std::string &text, int maxWidth);
 };
 
 #endif

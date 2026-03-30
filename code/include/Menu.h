@@ -21,6 +21,8 @@ public:
 private:
     static const std::string HIGHLIGHT_ON;
     static const std::string HIGHLIGHT_OFF;
+    static const std::string COLOR_RED;
+    static const std::string COLOR_RESET;
     static const std::string CURSOR_HIDE;
     static const std::string CURSOR_SHOW;
     static const std::string CURSOR_SAVE;

@@ -1,5 +1,26 @@
 #include "DisplayFormatter.h"
 
+std::vector<std::string> DisplayFormatter::wrapLine(const std::string &prefix, const std::string &text, int maxWidth) {
+    std::vector<std::string> result;
+    bool isRed = prefix.size() >= 2 && prefix[0] == '!' && prefix[1] == '!';
+    std::string visiblePrefix = isRed ? prefix.substr(2) : prefix;
+
+    std::string remaining = text;
+    int firstLen = maxWidth - (int)visiblePrefix.size();
+    result.push_back(prefix + remaining.substr(0, firstLen));
+    remaining = remaining.substr(std::min((int)remaining.size(), firstLen));
+
+    std::string contPad(visiblePrefix.size(), ' ');
+    std::string contPrefix = (isRed ? "!!" : "") + contPad;
+    int contLen = maxWidth - (int)contPad.size();
+    while (!remaining.empty()) {
+        result.push_back(contPrefix + remaining.substr(0, contLen));
+        remaining = remaining.substr(std::min((int)remaining.size(), contLen));
+    }
+
+    return result;
+}
+
 std::vector<std::string> DisplayFormatter::formatSubmissions(const std::vector<Submission> &submissions) {
     std::vector<std::string> lines;
     if (submissions.empty()) { lines.push_back("No submissions loaded."); return lines; }
