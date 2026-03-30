@@ -68,7 +68,6 @@ The assignment problem is modeled as a 4-layer flow network:
 | 2 | Mode 1 + `sub.secondary == rev.primary` | O(2*S*R/K) |
 | 3 | All primary/secondary combinations (4 checks) | O(S*R) |
 
----
 
 ## Algorithm: Dinic's Max-Flow
 
@@ -114,7 +113,6 @@ The `InputValidator` performs:
 - **Duplicate detection**: via `unordered_set` for both submission and reviewer IDs
 - **Cross-constraints**: total reviewer capacity vs required reviews, domain coverage per mode
 
----
 
 ## Project Structure
 
@@ -186,7 +184,6 @@ Risk analysis output:
 #Risk Analysis: 1
 7, 8
 ```
-
 
 ### Self-Evaluation
 
