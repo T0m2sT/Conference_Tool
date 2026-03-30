@@ -37,65 +37,71 @@ int FlowNetwork::getMatchDomain(const Submission &sub, const Reviewer &rev, int 
     return -1;
 }
 
-bool FlowNetwork::bfs(Graph<std::string> &graph, const std::string &source, const std::string &sink) {
-    for (Vertex<std::string> *v : graph.getVertexSet()) {
-        v->setVisited(false);
-        v->setPath(nullptr);
-    }
+bool FlowNetwork::bfsLevel(Graph<std::string> &graph, const std::string &source,
+                            const std::string &sink,
+                            std::unordered_map<std::string, int> &level) {
+    level.clear();
+    for (Vertex<std::string> *v : graph.getVertexSet())
+        level[v->getInfo()] = -1;
 
     std::queue<Vertex<std::string>*> Q;
-    Vertex<std::string> *sourceVertex = graph.findVertex(source);
-    sourceVertex->setVisited(true);
-    Q.push(sourceVertex);
+    Vertex<std::string> *src = graph.findVertex(source);
+    level[source] = 0;
+    Q.push(src);
 
     while (!Q.empty()) {
-        Vertex<std::string> *current = Q.front();
-        Q.pop();
-
-        for (Edge<std::string> *e : current->getAdj()) {
-            Vertex<std::string> *dest = e->getDest();
-            int residualCapacity = e->getWeight() - e->getFlow();
-
-            if (!dest->isVisited() && residualCapacity > 0) {
-                dest->setVisited(true);
-                dest->setPath(e);
-                Q.push(dest);
-
-                if (dest->getInfo() == sink) return true;
+        Vertex<std::string> *curr = Q.front(); Q.pop();
+        for (Edge<std::string> *e : curr->getAdj()) {
+            const std::string &destInfo = e->getDest()->getInfo();
+            if (level[destInfo] == -1 && e->getWeight() - e->getFlow() > 0) {
+                level[destInfo] = level[curr->getInfo()] + 1;
+                Q.push(e->getDest());
             }
         }
     }
-
-    return false;
+    return level[sink] != -1;
 }
 
-int FlowNetwork::edmondsKarp(Graph<std::string> &graph, const std::string &source, const std::string &sink) {
-    int maxFlow = 0;
+int FlowNetwork::dfsSend(Graph<std::string> &graph, Vertex<std::string> *curr,
+                          const std::string &sink, int pushed,
+                          std::unordered_map<std::string, int> &level,
+                          std::unordered_map<std::string, int> &iter) {
+    const std::string &info = curr->getInfo();
+    if (info == sink) return pushed;
 
-    // Keep finding augmenting paths until none exist
-    while (bfs(graph, source, sink)) {
-        // Find bottleneck: walk backwards from sink to source
-        double bottleneck = INF;
-        auto v = graph.findVertex(sink);
-        while (v->getInfo() != source) {
-            Edge<std::string> *e = v->getPath();
-            double residual = e->getWeight() - e->getFlow();
-            if (residual < bottleneck) bottleneck = residual;
-            v = e->getOrig();
+    const auto adj = curr->getAdj();
+    int &it = iter[info];
+
+    for (; it < (int)adj.size(); ++it) {
+        Edge<std::string> *e = adj[it];
+        Vertex<std::string> *dest = e->getDest();
+        int residual = (int)(e->getWeight() - e->getFlow());
+
+        if (level[dest->getInfo()] == level[info] + 1 && residual > 0) {
+            int d = dfsSend(graph, dest, sink, std::min(pushed, residual), level, iter);
+            if (d > 0) {
+                e->setFlow(e->getFlow() + d);
+                e->getReverse()->setFlow(e->getReverse()->getFlow() - d);
+                return d;
+            }
         }
-
-        // Push flow along the path
-        v = graph.findVertex(sink);
-        while (v->getInfo() != source) {
-            Edge<std::string> *e = v->getPath();
-            e->setFlow(e->getFlow() + bottleneck);
-            e->getReverse()->setFlow(e->getReverse()->getFlow() - bottleneck);
-            v = e->getOrig();
-        }
-
-        maxFlow += (int)bottleneck;
     }
+    return 0;
+}
 
+int FlowNetwork::dinic(Graph<std::string> &graph, const std::string &source, const std::string &sink) {
+    int maxFlow = 0;
+    std::unordered_map<std::string, int> level;
+
+    while (bfsLevel(graph, source, sink, level)) {
+        std::unordered_map<std::string, int> iter;
+        for (Vertex<std::string> *v : graph.getVertexSet())
+            iter[v->getInfo()] = 0;
+
+        int f;
+        while ((f = dfsSend(graph, graph.findVertex(source), sink, INT_MAX, level, iter)) > 0)
+            maxFlow += f;
+    }
     return maxFlow;
 }
 
@@ -152,9 +158,9 @@ AssignmentResult FlowNetwork::buildAndSolve(
         }
     }
 
-    // --- Run Edmonds-Karp ---
+    // --- Run Dinic's algorithm ---
     int totalRequired = (int)submissions.size() * params.minReviewsPerSubmission;
-    int maxFlow = edmondsKarp(graph, "source", "sink");
+    int maxFlow = dinic(graph, "source", "sink");
 
     // This is theoretically redundant with the per-submission check below,
     // but kept for clarity and correctness validation
