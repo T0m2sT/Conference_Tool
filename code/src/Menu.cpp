@@ -128,7 +128,7 @@ std::string Menu::promptInBox(const std::string &subtitle, const std::string &pr
     int topMargin = (termRows - boxHeight) / 2;
 
     std::cout << CLEAR_SCREEN;
-    for (int i = 0; i < topMargin; i++) std::cout << "\n";
+    std::cout << cursorToPos(topMargin + 1, 1);
     std::cout << pad << BOX_TOP << "\n";
     std::cout << pad << boxLine("") << "\n";
     std::cout << pad << boxLine("                Conference Review Assignment Tool") << "\n";
@@ -140,11 +140,10 @@ std::string Menu::promptInBox(const std::string &subtitle, const std::string &pr
     std::cout << pad << boxLine("  " + prompt) << "\n";
     std::cout << pad << boxLine("") << "\n";
     std::cout << pad << BOX_BOTTOM << "\n";
-    for (int i = 0; i < topMargin; i++) std::cout << "\n";
     std::cout << std::flush;
 
-    // Move cursor to the prompt input position
-    int promptRow = topMargin + 9; // 0-indexed rows before prompt line + 1
+    // Prompt line is the 9th line of the box, box starts at topMargin+1
+    int promptRow = topMargin + 9;
     int promptCol = (int)pad.size() + 4 + (int)prompt.size() + 1;
     std::cout << cursorToPos(promptRow, promptCol);
 
