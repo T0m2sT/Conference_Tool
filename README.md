@@ -191,3 +191,10 @@ Risk analysis output:
 | :---: | :---: |
 | Pedro Tomás Teixeira | 50% |
 | Rafael Pinho e Silva | 50% |
+
+
+<p align = "center" >
+  <h2 align = "center" >
+    Grade: 19.1/20
+  </h2>
+</p>
