@@ -1,12 +1,12 @@
 # Conference Review Assignment Tool
 
->This project was developed by <a href="https://github.com/T0m2sT">Pedro Tomás Teixeira</a> (up202404987), <a href="https://github.com/Pinho13">Rafael Pinho e Silva</a> (up202406334) for DA 2025/26.
-
-**Design of Algorithms (DA) - L.EIC016**
-Spring 2026 | Programming Project I
-
 A command-line tool that assigns paper submissions to reviewers for scientific conferences using max-flow optimization. Given a set of submissions with topic domains and reviewers with areas of expertise, the tool computes an optimal review assignment that satisfies minimum review requirements while respecting reviewer workload limits.
 
+>This project was developed by <a href="https://github.com/T0m2sT">Pedro Tomás Teixeira</a> (up202404987), <a href="https://github.com/Pinho13">Rafael Pinho e Silva</a> (up202406334).
+
+![Grade](https://img.shields.io/badge/Grade-19.1%2F20-1E90FF?style=for-the-badge&labelColor=21262d)
+![Course](https://img.shields.io/badge/Course-DA-1E90FF?style=for-the-badge&labelColor=21262d)
+![Semester](https://img.shields.io/badge/Semester-2025%2F26-1E90FF?style=for-the-badge&labelColor=21262d)
 
 ## Build & Run
 
@@ -191,10 +191,3 @@ Risk analysis output:
 | :---: | :---: |
 | Pedro Tomás Teixeira | 50% |
 | Rafael Pinho e Silva | 50% |
-
-
-<p align = "center" >
-  <h2 align = "center" >
-    Grade: 19.1/20
-  </h2>
-</p>
